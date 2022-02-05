@@ -1,8 +1,62 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="container">
+    <div class="pt-3">
+        <h2>
+            SportsPro Technical Support
+        </h2>
+        <p>Sports management software for the sports enthusiast</p>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="pt-3">
+        <h2>
+            Admin
+        </h2>
+        <table class="table table-bordered table-hover w-50">
+            <tbody>
+                <tr scope="row">
+                    <td>
+                        <a class="nav-link" asp-controller="Products" asp-action="Index">Manage Products</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="nav-link" asp-controller="Technicians" asp-action="Index">Manage Technicians</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="nav-link" asp-controller="Customers" asp-action="Index">Manage Customers</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="nav-link" asp-controller="Incidents" asp-action="Index">Manage Incidents</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="nav-link" asp-controller="Registrations" asp-action="Index">Manage Registrations</a>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+
+    <div class="pt-3">
+        <h2>
+            Technicians
+        </h2>
+        <table class="table table-bordered table-hover w-50">
+            <tbody>
+                <tr scope="row">
+                    <td>
+                        <a class="nav-link" asp-controller="Products" asp-action="Index">Manage Products</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
