@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "B+ssmTPO68pL1mxGeycpVfCjBBewRaSW9PjE6gwFhfY=",
+  "Hash": "dWB6kqzQjRU8zSH1gz+UiVazqSnW/nW5zouitpRorPk=",
   "Source": "GBCSports",
   "BasePath": "_content/GBCSports",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\GBCSports.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\css\\CustomerStyleSheet.css",
+      "SourceId": "GBCSports",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\",
+      "BasePath": "_content/GBCSports",
+      "RelativePath": "css/CustomerStyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CustomerStyleSheet.css"
     },
     {
       "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\css\\site.css",
