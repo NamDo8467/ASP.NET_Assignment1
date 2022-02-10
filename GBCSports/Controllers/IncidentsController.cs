@@ -17,12 +17,29 @@ namespace GBCSports.Controllers
             IEnumerable<Incidents> incidents = _db.Incidents.ToList();
             return View(incidents);
         }
-
+        
         public IActionResult Add()
         {
             Incidents incident = new Incidents();
             ViewBag.Action = "Add";
             return View("Add", incident);
+        }
+
+        [HttpPost]
+        public IActionResult Add(Incidents incident)
+        {
+            if (!ModelState.IsValid)
+            {
+                Incidents incidentObj = new Incidents();
+                ViewBag.Action = "Add";
+                return View("Add", incidentObj);
+            }
+            
+           
+            _db.Add(incident);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+            
         }
 
         public IActionResult Edit(int? id)
