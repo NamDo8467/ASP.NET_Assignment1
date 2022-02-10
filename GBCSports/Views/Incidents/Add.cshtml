@@ -1,48 +1,50 @@
-﻿@{
-	ViewData["Title"] = "Edit Incident";
-
+﻿@model Incidents
+@{
+	ViewData["Title"] = "Add Incident";
+	
+	string title = ViewBag.Action + "Incident";
 }
 <div class="container">
 	<div>
-		<h2>Edit Incident</h2>
+		<h2>@title</h2>
 	</div>
 
 	<div>
 		<form>
 		  <div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Customer</label>
-			<input type="email" class="form-control" aria-describedby="emailHelp">
+			<label asp-for="CustomerName" class="form-label">Customer</label>
+			<input type="text" class="form-control" asp-for="CustomerName">
 		  </div>
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Product</label>
-			<input type="password" class="form-control">
+			<label asp-for="Product" class="form-label">Product</label>
+			<input type="text" class="form-control" asp-for="Product">
 		  </div>
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Title</label>
-			<input type="text" class="form-control">
+			<label asp-for="Title" class="form-label">Title</label>
+			<input type="text" class="form-control" asp-for="Title">
 		  </div>
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Description</label>
-			<input type="text" class="form-control">
+			<label asp-for="Description" class="form-label">Description</label>
+			<input type="text" class="form-control" asp-for="Description">
 		  </div>
 
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Techinician</label>
-			<input type="text" class="form-control">
+			<label asp-for="Technician" class="form-label">Techinician</label>
+			<input type="text" class="form-control" asp-for="Technician">
 		  </div>
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Date Opened</label>
-			<input type="text" class="form-control">
+			<label asp-for="DateOpened" class="form-label">Date Opened</label>
+			<input type="text" class="form-control" asp-for="DateOpened">
 		  </div>
 
 		  <div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Date Closed</label>
-			<input type="text" class="form-control">
+			<label asp-for="DateClosed" class="form-label">Date Closed</label>
+			<input type="text" class="form-control" asp-for="DateClosed">
 		  </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
