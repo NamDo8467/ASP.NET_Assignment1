@@ -11,6 +11,7 @@ namespace GBCSports.Data
         }
         public DbSet<Incidents> Incidents { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
         
     }
 }
