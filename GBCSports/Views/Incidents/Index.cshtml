@@ -1,14 +1,42 @@
-﻿@{
-	ViewData["Title"] = "Incidents Page";
+﻿@model IEnumerable<Incidents>;
 
-}
-
-<div class="container">
+    <div class="container">
 	<div>
 		<h2>Incident Manager</h2>
 	</div>
 
-	<table>
-		
-	</table>
+	<table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Product</th>
+            <th scope="col">Date Opened</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var incident in Model)
+            {
+                <tr>
+                    <td>@incident.Title</td>
+                    <td>@incident.CustomerName</td>
+                    <td>@incident.Product</td>
+                    <td>@incident.DateOpened</td>
+
+                    <td>
+                        <a asp-controller="Incidents" asp-action="Edit" asp-route-id = "@incident.Id" class="btn btn-primary p-2">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Incidents" asp-action="Delete" class="btn btn-primary p-2">Delete</a>
+                    </td>
+                </tr>
+            }
+        
+        </tbody>
+    </table>
+    
+    <a asp-controller="Incidents" asp-action="Add" class="btn btn-primary p-2">Add</a>
+                    
 </div>
