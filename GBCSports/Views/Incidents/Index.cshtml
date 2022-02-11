@@ -9,10 +9,10 @@
         <thead>
         <tr>
             <th scope="col">Title</th>
-            <th scope="col">Customer</th>
-            <th scope="col">Product</th>
-            <th scope="col">Date Opened</th>
-            <th scope="col"></th>
+            <th scope="col" class='text-center'>Customer</th>
+            <th scope="col" class='text-center'>Product</th>
+            <th scope="col" class='text-center'>Date Opened</th>
+            <th scope="col" class='text-center' colspan=2>Action</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -21,15 +21,15 @@
             {
                 <tr>
                     <td>@incident.Title</td>
-                    <td>@incident.CustomerName</td>
-                    <td>@incident.Product</td>
-                    <td>@incident.DateOpened</td>
+                    <td class='text-center'>@incident.CustomerName</td>
+                    <td class='text-center'>@incident.Product</td>
+                    <td class='text-center'>@incident.DateOpened</td>
 
-                    <td>
-                        <a asp-controller="Incidents" asp-action="Edit" asp-route-id = "@incident.Id" class="btn btn-primary p-2">Edit</a>
+                    <td class="d-flex justify-content-end">
+                        <a asp-controller="Incidents" asp-action="Edit" asp-route-id = "@incident.Id" class="btn btn-warning p-2 px-3">Edit</a>
                     </td>
                     <td>
-                        <a asp-controller="Incidents" asp-action="Delete" class="btn btn-primary p-2">Delete</a>
+                        <a asp-controller="Incidents" asp-action="Delete" class="btn btn-danger p-2">Delete</a>
                     </td>
                 </tr>
             }
