@@ -14,6 +14,7 @@ namespace GBCSports.Controllers
         }
         public IActionResult Index()
         {
+            
             IEnumerable<Incidents> incidents = _db.Incidents.ToList();
             return View(incidents);
         }
@@ -21,6 +22,7 @@ namespace GBCSports.Controllers
         public IActionResult Add()
         {
             Incidents incident = new Incidents();
+            ViewBag.ButtonName = "Add Incident";
             ViewBag.Action = "Add";
             return View("Add", incident);
         }
@@ -31,15 +33,14 @@ namespace GBCSports.Controllers
             if (!ModelState.IsValid)
             {
                 Incidents incidentObj = new Incidents();
+                ViewBag.ButtonName = "Add Incident";
                 ViewBag.Action = "Add";
                 return View("Add", incidentObj);
             }
             
-           
-            _db.Add(incident);
+           _db.Incidents.Add(incident);
             _db.SaveChanges();
             return RedirectToAction("Index");
-            
         }
 
         public IActionResult Edit(int? id)
@@ -49,6 +50,8 @@ namespace GBCSports.Controllers
                 return NotFound();
             }
 
+            ViewBag.ButtonName = "Update Incident";
+            ViewBag.Action = "Edit";
             var incident = _db.Incidents.Find(id);
             if (incident == null)
             {
@@ -57,6 +60,20 @@ namespace GBCSports.Controllers
 
             
             return View("Add", incident);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Incidents incident)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ButtonName = "Update Incident";
+                ViewBag.Action = "Edit";
+                return View("Add", incident);
+            }
+            _db.Incidents.Update(incident);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
