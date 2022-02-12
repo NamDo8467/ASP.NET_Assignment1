@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/cu_bi/Desktop/TERM 4/WEB APPLICATION DEVELOPMENT COMP 2139/AS1/ASP.NET_Assignment1/GBCSports/GBCSports.csproj": {}
+    "C:\\Users\\nhat\\Desktop\\AS1\\GBCSports\\GBCSports.csproj": {}
   },
   "projects": {
-    "/Users/cu_bi/Desktop/TERM 4/WEB APPLICATION DEVELOPMENT COMP 2139/AS1/ASP.NET_Assignment1/GBCSports/GBCSports.csproj": {
+    "C:\\Users\\nhat\\Desktop\\AS1\\GBCSports\\GBCSports.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/cu_bi/Desktop/TERM 4/WEB APPLICATION DEVELOPMENT COMP 2139/AS1/ASP.NET_Assignment1/GBCSports/GBCSports.csproj",
+        "projectUniqueName": "C:\\Users\\nhat\\Desktop\\AS1\\GBCSports\\GBCSports.csproj",
         "projectName": "GBCSports",
-        "projectPath": "/Users/cu_bi/Desktop/TERM 4/WEB APPLICATION DEVELOPMENT COMP 2139/AS1/ASP.NET_Assignment1/GBCSports/GBCSports.csproj",
-        "packagesPath": "/Users/cu_bi/.nuget/packages/",
-        "outputPath": "/Users/cu_bi/Desktop/TERM 4/WEB APPLICATION DEVELOPMENT COMP 2139/AS1/ASP.NET_Assignment1/GBCSports/obj/",
+        "projectPath": "C:\\Users\\nhat\\Desktop\\AS1\\GBCSports\\GBCSports.csproj",
+        "packagesPath": "C:\\Users\\nhat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nhat\\Desktop\\AS1\\GBCSports\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/cu_bi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +39,22 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
