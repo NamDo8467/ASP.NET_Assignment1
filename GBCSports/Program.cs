@@ -1,7 +1,18 @@
+using GBCSports.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRouting(options =>
+{
+    options.AppendTrailingSlash = false;
+    options.LowercaseUrls = true;
+});
+builder.Services.AddDbContext<ProductContext>(options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("ProductContext")
+    ));
 
 var app = builder.Build();
 

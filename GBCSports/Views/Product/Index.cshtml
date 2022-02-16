@@ -26,8 +26,8 @@
                     <td>@good.Name</td>
                     <td>$@good.Price</td>
                     <td>@good.Release_Date</td>
-                    <td><a class="btn btn-primary" asp-controller="Product" asp-action="Edit" asp-route-id="@good.Id" name="Edit"> Edit</a></td>
-                    <td><a class="btn btn-primary" asp-controller="Product" asp-action="Delete" asp-route-id="@good.Id"  name="Delete">Delete</a></td>
+                    <td class="text-center"><a class="btn btn-warning " asp-controller="Product" asp-action="Edit" asp-route-id="@good.Id" name="Edit"> Edit</a></td>
+                    <td class="text-center"><a class="btn btn-danger " asp-controller="Product" asp-action="Delete" asp-route-id="@good.Id"  name="Delete">Delete</a></td>
                 </tr>
             }
         </tbody>
