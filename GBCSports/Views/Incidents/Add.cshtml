@@ -1,4 +1,4 @@
-﻿@model Incidents
+﻿@model Incident
 @{
 	ViewData["Title"] = "Add Incident";
 	
@@ -14,7 +14,13 @@
 		  <div class="mb-3">
 			<label asp-for="CustomerName" class="form-label">Customer</label>
 			<span asp-validation-for="CustomerName" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="CustomerName">
+			<select class="form-select" asp-for="CustomerName">
+				@foreach (Customer customer in ViewBag.Customers)
+				{
+					<option value="@customer.FirstName @customer.LastName">@customer.FirstName @customer.LastName</option>
+				}
+				
+			</select>
 		  </div>
 
 		  <div class="mb-3">

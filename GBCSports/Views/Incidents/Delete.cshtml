@@ -1,6 +1,8 @@
-﻿@{
-
-}
-<div>
-
+﻿<div>
+	<form method="post">
+		<h1>Are you sure you want to delete this record</h1>
+		<button class="btn btn-danger" asp-controller="Incidents" asp-action="DeleteIncident" asp-route-id="@ViewBag.DeleteId">Yes</button>
+		<button class="btn btn-secondary" asp-controller="Incidents" asp-action="Index">No</button>
+	</form>
+	
 </div>

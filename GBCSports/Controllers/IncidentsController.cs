@@ -14,31 +14,34 @@ namespace GBCSports.Controllers
         }
         public IActionResult Index()
         {
-            
-            IEnumerable<Incidents> incidents = _db.Incidents.ToList();
+
+            IEnumerable<Incident> incidents = _db.Incidents.ToList();
             return View(incidents);
         }
-        
+
         public IActionResult Add()
         {
-            Incidents incident = new Incidents();
+            Incident incident = new Incident();
             ViewBag.ButtonName = "Add Incident";
             ViewBag.Action = "Add";
+            ViewBag.Customers = _db.Customers.ToList();
+         
             return View("Add", incident);
         }
 
         [HttpPost]
-        public IActionResult Add(Incidents incident)
+        public IActionResult Add(Incident incident)
         {
             if (!ModelState.IsValid)
             {
-                Incidents incidentObj = new Incidents();
+                Incident incidentObj = new Incident();
                 ViewBag.ButtonName = "Add Incident";
                 ViewBag.Action = "Add";
+                ViewBag.Customers = _db.Customers.ToList();
                 return View("Add", incidentObj);
             }
-            
-           _db.Incidents.Add(incident);
+
+            _db.Incidents.Add(incident);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -58,12 +61,12 @@ namespace GBCSports.Controllers
                 return NotFound();
             }
 
-            
+
             return View("Add", incident);
         }
 
         [HttpPost]
-        public IActionResult Edit(Incidents incident)
+        public IActionResult Edit(Incident incident)
         {
             if (!ModelState.IsValid)
             {
@@ -74,6 +77,33 @@ namespace GBCSports.Controllers
             _db.Incidents.Update(incident);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            ViewBag.DeleteId = id;
+            return View("Delete");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteIncident(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+           var incident =  _db.Incidents.Find(id);
+            if (incident == null) {
+                return NotFound();
+            }
+            _db.Incidents.Remove(incident);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
     }
 }
