@@ -1,0 +1,14 @@
+﻿
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+<div class="container">
+    <div><h2 class="pt-3">Delete Product</h2></div>
+</div>
+<form method="post" asp-action="Delete" asp-controller="Product">
+
+<p>Do you really want to delete <span>@ViewBag.Name</span>?</p>
+<button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Delete1" asp-route-id="@ViewBag.Id">Yes</button>
+<button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Index">No</button>
+</form>

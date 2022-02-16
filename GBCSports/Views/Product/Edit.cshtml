@@ -1,0 +1,34 @@
+﻿@model GBCSports.Models.Product;
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<div class="container">
+    <div><h2 class="pt-3">Add Product</h2></div>
+</div>
+<form method="post" asp-action="Edit" asp-controller="Product">
+    <div class="form-group">
+        <label asp-for="Code">Code</label>
+        <input class="form-control" type="text" id="codeInput" asp-for="Code">
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input class="form-control" type="text" id="nameInput" asp-for="Name">
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Yearly Price</label>
+        <input class="form-control" type="text" id="priceInput" placeholder="0.00" asp-for="Price">
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="Release_Date">Release Date</label>
+        <input class="form-control" type="text" id="dateInput" placeholder="MM/DD/YYYY" asp-for="Release_Date">
+        <br>
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Edit">Save</button>
+    <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Index">Cancel</button>
+</form>
