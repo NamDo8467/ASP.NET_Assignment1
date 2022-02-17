@@ -24,10 +24,10 @@
                     <td class='text-center'>@customer.City</td>
 
                     <td class="d-flex justify-content-end">
-                        <a asp-controller="Customers" asp-action="Edit" asp-route-id = "@customer.Id" class="btn btn-warning p-2 px-3">Edit</a>
+                        <a asp-controller="Customer" asp-action="Edit" asp-route-id = "@customer.Id" class="btn btn-warning p-2 px-3">Edit</a>
                     </td>
                     <td>
-                        <a asp-controller="Customers" asp-action="Delete" asp-route-id = "@customer.Id" class="btn btn-danger p-2">Delete</a>
+                        <a asp-controller="Customer" asp-action="Delete" asp-route-id = "@customer.Id" class="btn btn-danger p-2">Delete</a>
                     </td>
                 </tr>
             }
@@ -35,7 +35,7 @@
         </tbody>
     </table>
     
-    <a asp-controller="customers" asp-action="Add" class="btn btn-primary p-2">Add</a>
+    <a asp-controller="Customer" asp-action="Add" class="btn btn-primary p-2">Add</a>
                     
 </div>
 

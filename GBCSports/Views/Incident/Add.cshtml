@@ -10,7 +10,7 @@
 	</div>
 
 	<div>
-		<form asp-controller="Incident" asp-action="@ViewBag.Action" method="post">
+		<form asp-controller="Incident" asp-action="Add" method="post">
 		  <div class="mb-3">
 			<label asp-for="CustomerName" class="form-label">Customer</label>
 			<span asp-validation-for="CustomerName" class='text-danger'></span>
@@ -57,12 +57,11 @@
 			<span asp-validation-for="DateClosed" class='text-danger'></span>
 			<input type="text" class="form-control" asp-for="DateClosed">
 		  </div>
-		  @if (@ViewBag.Action == "Edit")
-		  {
-			  <button type="submit" class="btn btn-warning">@ViewBag.ButtonName</button>
-		  }else{
-			  <button type="submit" class="btn btn-primary">@ViewBag.ButtonName</button>
-		  }
+		  
+			  <button type="submit" class="btn btn-primary">Add Incident</button>
+		  
+			  <a asp-controller="Incident" asp-action="Index" class="btn btn-danger">Cancel</a>
+		  
 		  
 		</form>
 	</div>
