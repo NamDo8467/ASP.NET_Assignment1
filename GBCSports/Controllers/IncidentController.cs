@@ -32,11 +32,8 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
-                Incident incidentObj = new Incident();
-                ViewBag.ButtonName = "Add Incident";
-                ViewBag.Action = "Add";
                 ViewBag.Customers = _db.Customers.ToList();
-                return View("Add", incidentObj);
+                return View();
             }
 
             _db.Incidents.Add(incident);
