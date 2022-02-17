@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GBCSports.Controllers
 {
-    public class IncidentsController : Controller
+    public class IncidentController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public IncidentsController(ApplicationDbContext db)
+        public IncidentController(ApplicationDbContext db)
         {
             _db = db;
         }

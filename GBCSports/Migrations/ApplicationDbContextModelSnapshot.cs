@@ -22,6 +22,80 @@ namespace GBCSports.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("GBCSports.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Canada"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "VietNam"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "United States of America"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Russia"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Italy"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "France"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Spain"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "England"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Germany"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Netherlands"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Poland"
+                        });
+                });
+
             modelBuilder.Entity("GBCSports.Models.Customer", b =>
                 {
                     b.Property<int>("Id")

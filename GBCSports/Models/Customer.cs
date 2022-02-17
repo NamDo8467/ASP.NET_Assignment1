@@ -10,9 +10,11 @@ namespace GBCSports.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = errorMessage)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; } 
         
         [Required(ErrorMessage = errorMessage)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = errorMessage)]
