@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Customer>;
+
+    <div class="container">
+	<div>
+		<h2>Customer Manager</h2>
+	</div>
+
+	<table class="table">
+        <thead>
+        <tr>
+            <th scope="col" class='text-center'>Name</th>
+            <th scope="col" class='text-center'>Email</th>
+            <th scope="col" class='text-center'>City</th>
+            <th scope="col" class='text-center' colspan=2>Action</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td class='text-center'>@customer.FirstName @customer.LastName</td>
+                    <td class='text-center'>@customer.Email</td>
+                    <td class='text-center'>@customer.City</td>
+
+                    <td class="d-flex justify-content-end">
+                        <a asp-controller="Customers" asp-action="Edit" asp-route-id = "@customer.Id" class="btn btn-warning p-2 px-3">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Customers" asp-action="Delete" asp-route-id = "@customer.Id" class="btn btn-danger p-2">Delete</a>
+                    </td>
+                </tr>
+            }
+        
+        </tbody>
+    </table>
+    
+    <a asp-controller="customers" asp-action="Add" class="btn btn-primary p-2">Add</a>
+                    
+</div>
+
