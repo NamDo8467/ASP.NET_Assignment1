@@ -22,8 +22,6 @@ namespace GBCSports.Controllers
         public IActionResult Add()
         {
             Incident incident = new Incident();
-            ViewBag.ButtonName = "Add Incident";
-            ViewBag.Action = "Add";
             ViewBag.Customers = _db.Customers.ToList();
          
             return View("Add", incident);
@@ -53,8 +51,6 @@ namespace GBCSports.Controllers
                 return NotFound();
             }
 
-            ViewBag.ButtonName = "Update Incident";
-            ViewBag.Action = "Edit";
             var incident = _db.Incidents.Find(id);
             if (incident == null)
             {
@@ -62,7 +58,7 @@ namespace GBCSports.Controllers
             }
 
 
-            return View("Add", incident);
+            return View("Edit", incident);
         }
 
         [HttpPost]
@@ -70,9 +66,7 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.ButtonName = "Update Incident";
-                ViewBag.Action = "Edit";
-                return View("Add", incident);
+                return View("Edit", incident);
             }
             _db.Incidents.Update(incident);
             _db.SaveChanges();
