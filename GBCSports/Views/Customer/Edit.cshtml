@@ -1,6 +1,6 @@
 ﻿@model Customer
 
-<form method="post" asp-controller="Customer" asp-action="Add">
+<form method="post" asp-controller="Customer" asp-action="Edit">
   <div class="mb-3">
     <label asp-for="FirstName" class="form-label"></label>
     <span class="text-danger" asp-validation-for="FirstName"></span>
@@ -43,7 +43,14 @@
           <option value="">Please select a country</option>
           @foreach (var country in @ViewBag.CountryList)
           {
-              <option value="@country.Name">@country.Name</option>
+                if (@country.Name == Model.Country)
+                {
+                    <option value="@country.Name" selected>@country.Name</option>
+                }else
+                {
+                    <option value="@country.Name">@country.Name</option>
+                }
+                
           }
 
       </select>

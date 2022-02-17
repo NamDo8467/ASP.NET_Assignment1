@@ -1,0 +1,7 @@
+﻿<div>
+	<form method="post" >
+		<h1>Are you sure you want to delete this customer</h1>
+		<button type="submit" asp-controller="Customer" asp-action="DeleteCustomer" class="btn btn-danger" asp-route-id="@ViewBag.DeleteId">Yes</button>
+		<a class="btn btn-secondary" asp-controller="Customer" asp-action="Index">No</a>
+	</form>
+</div>
