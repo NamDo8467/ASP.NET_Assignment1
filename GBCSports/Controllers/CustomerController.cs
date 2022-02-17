@@ -13,13 +13,17 @@ namespace GBCSports.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Customer> customerList = db.Customers.ToList();
+            IEnumerable<Customer> customerList = db.Customers;
             
             return View(customerList);
         }
+
+
+        /* Add actions */
         public IActionResult Add()
         {
-            ViewBag.CountryList = db.Countries.ToList();
+            IEnumerable<Country> countryList = db.Countries;
+            ViewBag.CountryList = countryList;
 
             return View();
         }
@@ -34,6 +38,64 @@ namespace GBCSports.Controllers
             }
 
             db.Customers.Add(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
+        /* Edit actions*/
+        public IActionResult Edit(int id)
+        {
+            var customer = db.Customers.Find(id);
+            if(customer == null)
+            {
+                return View("Error");
+            }
+            
+
+            ViewBag.CountryList = db.Countries.ToList();
+
+            return View(customer);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.CountryList = db.Countries.ToList();
+                return View(customer);
+            }
+
+            db.Customers.Update(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        /* Delete actions */
+        public IActionResult Delete(int id)
+        {
+            var customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return View("Error");
+            }
+            ViewBag.DeleteId = id;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteCustomer(int id)
+        {
+            var customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return View("Error");
+            }
+
+            db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
