@@ -27,7 +27,7 @@ namespace GBCSports.Data
                 new Country
                 {
                     Id = 2,
-                    Name = "VietNam"
+                    Name = "Vietnam"
                 },
                 new Country
                 {
