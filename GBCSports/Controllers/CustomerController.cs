@@ -23,6 +23,20 @@ namespace GBCSports.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Add(Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.CountryList = db.Countries.ToList();
+                return View(customer);
+            }
+
+            db.Customers.Add(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 
 
