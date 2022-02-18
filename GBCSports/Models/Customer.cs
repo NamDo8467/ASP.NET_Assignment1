@@ -17,15 +17,21 @@ namespace GBCSports.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+
         [Required(ErrorMessage = errorMessage)]
         public string Address { get; set; }
+
+
         [Required(ErrorMessage = errorMessage)]
         public string City { get; set; }
+
 
         [Required(ErrorMessage = errorMessage)]
         public string State { get; set; }
 
+
         [Required(ErrorMessage = errorMessage)]
+        [Display(Name = "Postal Code")]
         public string PostalCode { get; set; }
 
         [Required(ErrorMessage = errorMessage)]
