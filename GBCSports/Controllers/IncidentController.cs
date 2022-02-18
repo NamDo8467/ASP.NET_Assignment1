@@ -12,11 +12,11 @@ namespace GBCSports.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult List()
         {
 
-            IEnumerable<Incident> incidents = _db.Incidents.ToList();
-            return View(incidents);
+            IEnumerable<Incident> incidents = _db.Incidents;
+            return View("Index", incidents);
         }
 
         public IActionResult Add()
@@ -38,7 +38,7 @@ namespace GBCSports.Controllers
 
             _db.Incidents.Add(incident);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public IActionResult Edit(int? id)
@@ -67,7 +67,7 @@ namespace GBCSports.Controllers
             }
             _db.Incidents.Update(incident);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         public IActionResult Delete(int? id)
@@ -93,7 +93,7 @@ namespace GBCSports.Controllers
             }
             _db.Incidents.Remove(incident);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
 
         }
     }

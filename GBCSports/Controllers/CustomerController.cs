@@ -11,11 +11,11 @@ namespace GBCSports.Controllers
         {
             this.db = db;
         }
-        public IActionResult Index()
+        public IActionResult List()
         {
             IEnumerable<Customer> customerList = db.Customers;
             
-            return View(customerList);
+            return View("Index", customerList);
         }
 
 
@@ -39,7 +39,7 @@ namespace GBCSports.Controllers
 
             db.Customers.Add(customer);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
 
@@ -70,7 +70,7 @@ namespace GBCSports.Controllers
 
             db.Customers.Update(customer);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
 
@@ -97,7 +97,7 @@ namespace GBCSports.Controllers
 
             db.Customers.Remove(customer);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
     }
 
