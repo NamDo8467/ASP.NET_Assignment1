@@ -22,7 +22,7 @@ namespace GBCSports.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("GBCSports.Models.Technician", b =>
+            modelBuilder.Entity("GBCSports.Models.Technicians", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

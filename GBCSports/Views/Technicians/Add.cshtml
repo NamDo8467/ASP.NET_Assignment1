@@ -1,6 +1,7 @@
-﻿@model Technician
+﻿@model Technicians
 
-<form method="post">
+<form method="post" autocomplete="off">
+    <h2 class="text-primary">Add Technician</h2>
     <div class="mb-3">
         <label asp-for="FirstName" class="form-label"></label>
         <span class="text-danger" asp-validation-for="FirstName"></span>
@@ -20,7 +21,13 @@
         <input asp-for="Phone" type="text" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a class="btn btn-danger" asp-controller="Technician" asp-action="Index">
+    <a class="btn btn-danger" asp-controller="Technicians" asp-action="Index">
         Cancel
     </a>
 </form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

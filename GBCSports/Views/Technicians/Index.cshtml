@@ -1,11 +1,9 @@
-﻿@{
+﻿@model IEnumerable<Technicians>;
+@{
     ViewData["Title"] = "Index";
 }
-@model IEnumerable<Technicians>;
-
-    <div class="container">
-        <h2>Technician Manager</h2>
-    </div>
+<div class="container">
+    <h2>Technician Manager</h2>
 
     <table class="table table-striped">
         <thead>
@@ -14,24 +12,24 @@
                 <th scope="col" class="text-center">Email</th>
                 <th scope="col" class="text-center">Phone</th>
                 <th scope="col" class="text-center" colspan="2">Action</th>
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            @foreach(var technician in Model)
+            @foreach(var obj in Model)
             {
                 <tr>
-                    <td class="text-center">@technician.FirstName @technician.LastName</td>
-                    <td class="text-center">@technician.Email</td>
-                    <td class="text-center">@technician.Phone</td>
+                    <td class="text-center">@obj.FirstName @obj.LastName</td>
+                    <td class="text-center">@obj.Email</td>
+                    <td class="text-center">@obj.Phone</td>
 
-                    <td>
-                        <a asp-controller="Technicians" asp-action="Edit" asp-route-id="@technician.Id" class="btn btn-warning p-2 px-3">Edit</a>
-                        <a asp-controller="Technicians" asp-action="Delete" asp-route-id="@technician.Id" class="btn btn-danger p-2">Delete</a>
+                    <td class="text-center">
+                        <a asp-controller="Technicians" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary align-center p-2 px-3">Edit</a>
+                        <a asp-controller="Technicians" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-primary p-2">Delete</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <a asp-controller="Technician" asp-action="Add" class="btn btn-primary p-2">Add</a>
+    <a asp-controller="Technicians" asp-action="Add" class="btn btn-primary p-2">Add</a>
+</div>
