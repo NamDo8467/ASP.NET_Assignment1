@@ -4,22 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GBCSports.Controllers
 {
-    public class TechnicianController : Controller
+    public class TechniciansController : Controller
     {
         private ApplicationDbContext db;
-        public TechnicianController(ApplicationDbContext db)
+        public TechniciansController(ApplicationDbContext db)
         {
             this.db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Technician> technicianList = db.Technicians.ToList();
-
-            return View();
+            IEnumerable<Technicians> technicianList = db.Technicians.ToList();
+            return View(technicianList);
         }
 
         [HttpPost]
-        public IActionResult Add(TechnicianController technician)
+        public IActionResult Add(TechniciansController technician)
         {
             // db.Technicians.Add(technician);
             db.SaveChanges();

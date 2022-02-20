@@ -2,7 +2,7 @@
 
 namespace GBCSports.Models
 {
-    public class Technician
+    public class Technicians
     {
         const string errorMessage = "Cannot leave this field empty";
 
