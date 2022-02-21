@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj": {}
+    "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj": {}
   },
   "projects": {
-    "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj": {
+    "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj",
+        "projectUniqueName": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj",
         "projectName": "GBCSports",
-        "projectPath": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj",
-        "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
-        "outputPath": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\obj\\",
+        "projectPath": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj",
+        "packagesPath": "C:\\Users\\menes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\menes\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,30 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
