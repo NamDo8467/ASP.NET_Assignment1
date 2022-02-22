@@ -1,0 +1,66 @@
+﻿@model Incident
+@{
+	ViewData["Title"] = "Add Incident";
+	
+}
+<div class="container">
+	<div>
+		<h2>Add Incident</h2>
+	</div>
+
+	<div>
+		<form asp-controller="Incident" asp-action="Add" method="post">
+		  <div class="mb-3">
+			<label asp-for="CustomerName" class="form-label">Customer</label>
+			<span asp-validation-for="CustomerName" class='text-danger'></span>
+			<select class="form-select" asp-for="CustomerName">
+				@foreach (Customer customer in ViewBag.Customers)
+				{
+					<option value="@customer.FirstName @customer.LastName">@customer.FirstName @customer.LastName</option>
+				}
+				
+			</select>
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="Product" class="form-label">Product</label>
+			<span asp-validation-for="Product" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="Product">
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="Title" class="form-label">Title</label>
+			<span asp-validation-for="Title" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="Title">
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="Description" class="form-label">Description</label>
+			<span asp-validation-for="Description" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="Description">
+		  </div>
+
+
+		  <div class="mb-3">
+			<label asp-for="Technician" class="form-label">Techinician</label>
+			<input type="text" class="form-control" asp-for="Technician">
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="DateOpened" class="form-label">Date Opened</label>
+			<input type="text" class="form-control" asp-for="DateOpened">
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="DateClosed" class="form-label">Date Closed</label>
+			<span asp-validation-for="DateClosed" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="DateClosed">
+		  </div>
+		  
+			  <button type="submit" class="btn btn-primary">Add Incident</button>
+		  
+			  <a asp-controller="Incident" asp-action="List" class="btn btn-danger">Cancel</a>
+		  
+		  </form>
+	</div>
+</div>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - GBCSports</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GBCSports.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/CustomerStyleSheet.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -23,16 +23,16 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="List">Products</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Technicians" asp-action="Index">Technicians</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Technician" asp-action="List">Technicians</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Customer" asp-action="List">Customers</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Incidents" asp-action="Index">Incidents</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Incident" asp-action="List">Incidents</a>
                         </li>
                         <li class="nav-item mx-2">
                             @*<a class="nav-link text-white" asp-area="" asp-controller="Registrations" asp-action="Index">Registration</a>*@

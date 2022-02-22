@@ -1,0 +1,82 @@
+﻿@model Customer
+
+<div class="container">
+    <div>
+        <h2>Edit Customer</h2>
+    </div>
+
+    <div>
+        <form method="post" asp-controller="Customer" asp-action="Edit">
+          <div class="mb-3">
+            <label asp-for="FirstName" class="form-label"></label>
+            <span class="text-danger" asp-validation-for="FirstName"></span>
+            <input asp-for="FirstName" type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label asp-for="LastName" class="form-label"></label>
+            <span class="text-danger" asp-validation-for="LastName"></span>
+            <input asp-for="LastName" type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="Address"></label>
+            <span class="text-danger" asp-validation-for="Address"></span>
+            <input asp-for="Address"type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="City"></label>
+            <span class="text-danger" asp-validation-for="City"></span>
+            <input asp-for="City" type="text" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="State"></label>
+            <span class="text-danger" asp-validation-for="State"></span>
+            <input asp-for="State"type="text" class="form-control">
+    
+          </div>
+
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="PostalCode"></label>
+            <span class="text-danger" asp-validation-for="PostalCode"></span>
+            <input asp-for="PostalCode"type="text" class="form-control">
+    
+          </div>
+
+          <div class="mb-3">
+              <label class="form-check-label" asp-for="Country"></label>
+              <span class="text-danger" asp-validation-for="Country"></span>
+              <select class="form-select" asp-for="Country">
+                  <option value="">Please select a country</option>
+                  @foreach (var country in @ViewBag.CountryList)
+                  {
+                        if (@country.Name == Model.Country)
+                        {
+                            <option value="@country.Name" selected>@country.Name</option>
+                        }else
+                        {
+                            <option value="@country.Name">@country.Name</option>
+                        }
+                
+                  }
+
+              </select>
+    
+          </div>
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="Email"></label>
+            <input asp-for="Email"type="text" class="form-control">
+    
+          </div>
+          <div class="mb-3">
+            <label class="form-check-label" asp-for="Phone"></label>
+            <input asp-for="Phone"type="text" class="form-control">
+    
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a class="btn btn-danger" asp-controller="Customer" asp-action="List">
+              Cancel
+          </a>
+        </form>
+    </div>
+</div>
+
