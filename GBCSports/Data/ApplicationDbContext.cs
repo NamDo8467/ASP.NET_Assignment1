@@ -9,6 +9,9 @@ namespace GBCSports.Data
         {
             
         }
-        public DbSet<Technicians> Technicians { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Incident> Incidents { get; set; }
+        public DbSet<Technician> Technicians { get; set; }
     }
 }
