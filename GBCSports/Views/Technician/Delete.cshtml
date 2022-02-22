@@ -1,0 +1,32 @@
+﻿@model Technician
+
+<form method="post" asp-action="Delete" autocomplete="off">
+    <input asp-for="Id" hidden />
+    <h2 class="text-primary">Delete Technician</h2>
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" disabled type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" disabled type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-check-label"></label>
+        <input asp-for="Email" disabled type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-check-label"></label>
+        <input asp-for="Phone" disabled type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" asp-controller="Technician" asp-action="Index">
+        Cancel
+    </a>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
