@@ -9650,19 +9650,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\menes\\.nuget\\packages\\": {}
+    "C:\\Users\\huynh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj",
+      "projectUniqueName": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj",
       "projectName": "GBCSports",
-      "projectPath": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\GBCSports.csproj",
-      "packagesPath": "C:\\Users\\menes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\menes\\source\\repos\\ASP.NET_Assignment1\\GBCSports\\obj\\",
+      "projectPath": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\GBCSports.csproj",
+      "packagesPath": "C:\\Users\\huynh\\.nuget\\packages\\",
+      "outputPath": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\menes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huynh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
