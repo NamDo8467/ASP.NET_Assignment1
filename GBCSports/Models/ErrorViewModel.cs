@@ -1,4 +1,4 @@
-namespace GBCSports.Models
+namespace GBCSports.Data
 {
     public class ErrorViewModel
     {
