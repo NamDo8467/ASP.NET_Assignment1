@@ -13,5 +13,7 @@ namespace GBCSports.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<Incident> Incidents { get; set; }
         public DbSet<Technician> Technicians { get; set; }
+
+        public DbSet<Product> Products { get; set; }    
     }
 }
