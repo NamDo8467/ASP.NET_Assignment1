@@ -1,4 +1,4 @@
-﻿@model GBCSports.Models.Product;
+﻿@model GBCSports.Data.Product;
 
 @{
     ViewBag.Title = "Add Product";
@@ -30,7 +30,7 @@
         <label asp-for="Release_Date">Release Date</label>
         <br/>
         <span class="text-danger" asp-validation-for="Release_Date"></span>
-        <input class="form-control" type="date" id="dateInput" placeholder="MM/DD/YYYY" asp-for="Release_Date">
+        <input class="form-control" type="datetime-local"  placeholder="MM/DD/YYYY" asp-for="Release_Date">
     </div>
     <br>
     <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="AddToDatabase">Save</button>

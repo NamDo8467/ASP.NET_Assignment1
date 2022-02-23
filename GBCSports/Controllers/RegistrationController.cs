@@ -4,7 +4,7 @@ namespace GBCSports.Controllers
 {
     public class RegistrationController : Controller
     {
-        public IActionResult Index()
+        public IActionResult List()
         {
             return View("Index");
         }

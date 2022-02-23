@@ -1,12 +1,12 @@
-﻿using GBCSports.Models;
+﻿using GBCSports.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GBCSports.Controllers
 {
     public class ProductController : Controller
     {
-        private ProductContext context { get; set; }
-        public ProductController(ProductContext ctx)
+        private ApplicationDbContext context { get; set; }
+        public ProductController(ApplicationDbContext ctx)
         {
             context = ctx;
         }
@@ -19,18 +19,21 @@ namespace GBCSports.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            return View("Add");
+            return View();
         }
         [HttpPost]
         public IActionResult AddToDatabase(Product good)
         {
+            
             if (ModelState.IsValid)
             {
+               
+
                 context.Products.Add(good);
                 context.SaveChanges();
-                return RedirectToAction("List", "Product");
+                return RedirectToAction("List");
             }
-            return View(good);
+            return View("Add", good);
         }
 
         [HttpGet]
@@ -47,7 +50,7 @@ namespace GBCSports.Controllers
             {
                 context.Products.Update(good);
                 context.SaveChanges();  
-                return RedirectToAction("List", "Product");
+                return RedirectToAction("List");
             }
             return View("Edit",good);
         }
@@ -58,6 +61,7 @@ namespace GBCSports.Controllers
             
             ViewBag.Id = id;
             var product = context.Products.FirstOrDefault(c => c.Id == id);
+            if (product == null) return NotFound();
             ViewBag.Name = product.Name;
             return View(product);
         }
@@ -73,7 +77,7 @@ namespace GBCSports.Controllers
             }
             context.Products.Remove(good);
             context.SaveChanges();
-            return RedirectToAction("List", "Product");
+            return RedirectToAction("List");
 
         }
     }
