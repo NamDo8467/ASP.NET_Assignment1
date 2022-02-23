@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Technician>;
+﻿@model IEnumerable<Technician>;
 @{
     ViewData["Title"] = "Index";
 }
@@ -24,8 +23,8 @@
                     <td class="text-center">@obj.Phone</td>
 
                     <td class="text-center">
-                        <a asp-controller="Technician" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary align-center p-2 px-3">Edit</a>
-                        <a asp-controller="Technician" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-primary p-2">Delete</a>
+                        <a asp-controller="Technician" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-warning m-1">Edit</a>
+                        <a asp-controller="Technician" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger m-1">Delete</a>
                     </td>
                 </tr>
             }

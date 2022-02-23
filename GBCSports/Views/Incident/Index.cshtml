@@ -26,10 +26,8 @@
                     <td class='text-center'>@incident.DateOpened</td>
 
                     <td class="d-flex justify-content-end">
-                        <a asp-controller="Incident" asp-action="Edit" asp-route-id = "@incident.Id" class="btn btn-warning p-2 px-3">Edit</a>
-                    </td>
-                    <td>
-                        <a asp-controller="Incident" asp-action="Delete" asp-route-id = "@incident.Id" class="btn btn-danger p-2">Delete</a>
+                        <a asp-controller="Incident" asp-action="Edit" asp-route-id = "@incident.Id" class="btn btn-warning m-1">Edit</a>
+                        <a asp-controller="Incident" asp-action="Delete" asp-route-id = "@incident.Id" class="btn btn-danger m-1">Delete</a>
                     </td>
                 </tr>
             }
