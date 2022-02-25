@@ -20,8 +20,8 @@ namespace GBCSports.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Technician = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOpened = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateClosed = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateOpened = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateClosed = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
