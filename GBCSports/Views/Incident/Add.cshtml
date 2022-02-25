@@ -14,7 +14,7 @@
 			<label asp-for="CustomerName" class="form-label">Customer</label>
 			<span asp-validation-for="CustomerName" class='text-danger'></span>
 			<select class="form-select" asp-for="CustomerName">
-				@foreach (Customer customer in ViewBag.Customers)
+				@foreach (var customer in ViewBag.Customers)
 				{
 					<option value="@customer.FirstName @customer.LastName">@customer.FirstName @customer.LastName</option>
 				}
@@ -25,7 +25,13 @@
 		  <div class="mb-3">
 			<label asp-for="Product" class="form-label">Product</label>
 			<span asp-validation-for="Product" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="Product">
+			<select class="form-select" asp-for="Product">
+				@foreach (var product in ViewBag.Products)
+				{
+					<option value="@product.Name">@product.Name</option>
+				}
+				
+			</select>
 		  </div>
 
 		  <div class="mb-3">
@@ -42,19 +48,23 @@
 
 
 		  <div class="mb-3">
-			<label asp-for="Technician" class="form-label">Techinician</label>
-			<input type="text" class="form-control" asp-for="Technician">
+			<select class="form-select" asp-for="Technician">
+				@foreach (var technician in ViewBag.Technicians)
+				{
+					<option value="@technician.FirstName @technician.LastName">@technician.FirstName @technician.LastName</option>
+				}
+			</select>
 		  </div>
 
 		  <div class="mb-3">
 			<label asp-for="DateOpened" class="form-label">Date Opened</label>
-			<input type="text" class="form-control" asp-for="DateOpened">
+			<input type="datetime-local" class="form-control" asp-for="DateOpened">
 		  </div>
 
 		  <div class="mb-3">
 			<label asp-for="DateClosed" class="form-label">Date Closed</label>
 			<span asp-validation-for="DateClosed" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="DateClosed">
+			<input type="datetime-local" class="form-control" asp-for="DateClosed">
 		  </div>
 		  
 			  <button type="submit" class="btn btn-primary">Add Incident</button>

@@ -1,6 +1,6 @@
 ﻿@model Incident
 @{
-	ViewData["Title"] = "Add Incident";
+	ViewData["Title"] = "Edit Incident";
 }
 <div class="container">
 	<div>
@@ -12,13 +12,24 @@
 		  <div class="mb-3">
 			<label asp-for="CustomerName" class="form-label">Customer</label>
 			<span asp-validation-for="CustomerName" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="CustomerName"/>
+			<select class="form-select" asp-for="CustomerName">
+				@foreach (var customer in ViewBag.Customers)
+				{
+					<option value="@customer.FirstName @customer.LastName">@customer.FirstName @customer.LastName</option>
+				}
+			</select>
 		  </div>
 
 		  <div class="mb-3">
 			<label asp-for="Product" class="form-label">Product</label>
 			<span asp-validation-for="Product" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="Product">
+			<select class="form-select" asp-for="Product">
+				@foreach (var product in ViewBag.Products)
+				{
+					<option value="@product.Name">@product.Name</option>
+				}
+				
+			</select>
 		  </div>
 
 		  <div class="mb-3">
@@ -36,7 +47,12 @@
 
 		  <div class="mb-3">
 			<label asp-for="Technician" class="form-label">Techinician</label>
-			<input type="text" class="form-control" asp-for="Technician">
+			<select class="form-select" asp-for="Technician">
+				@foreach (var technician in ViewBag.Technicians)
+				{
+					<option value="@technician.FirstName @technician.LastName">@technician.FirstName @technician.LastName</option>
+				}
+			</select>
 		  </div>
 
 		  <div class="mb-3">
