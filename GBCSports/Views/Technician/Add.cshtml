@@ -3,21 +3,21 @@
 <form method="post" autocomplete="off">
     <h2 class="text-primary">Add Technician</h2>
     <div class="mb-3">
-        <label asp-for="FirstName" class="form-label"></label>
+        <label asp-for="FirstName" class="form-label">First Name<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
         <span class="text-danger" asp-validation-for="FirstName"></span>
         <input asp-for="FirstName" type="text" class="form-control">
     </div>
     <div class="mb-3">
-        <label asp-for="LastName" class="form-label"></label>
+        <label asp-for="LastName" class="form-label">Last Name<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
         <span class="text-danger" asp-validation-for="LastName"></span>
         <input asp-for="LastName" type="text" class="form-control">
     </div>
     <div class="mb-3">
-        <label asp-for="Email" class="form-check-label"></label>
+        <label asp-for="Email" class="form-check-label">Email</label>
         <input asp-for="Email" type="text" class="form-control">
     </div>
     <div class="mb-3">
-        <label asp-for="Phone" class="form-check-label"></label>
+        <label asp-for="Phone" class="form-check-label">Phone</label>
         <input asp-for="Phone" type="text" class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

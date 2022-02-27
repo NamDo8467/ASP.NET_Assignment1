@@ -88,19 +88,27 @@ namespace GBCSports.Controllers
             {
                 return NotFound();
             }
+            var incident = _db.Incidents.Find(id);
+            if(incident == null)
+            {
+                return NotFound();
+            }
+
             ViewBag.DeleteId = id;
-            return View("Delete");
+            return View(incident);
         }
 
         [HttpPost]
         public IActionResult DeleteIncident(int? id)
         {
+           
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-           var incident =  _db.Incidents.Find(id);
-            if (incident == null) {
+            var incident = _db.Incidents.Find(id);
+            if(incident == null)
+            {
                 return NotFound();
             }
             _db.Incidents.Remove(incident);

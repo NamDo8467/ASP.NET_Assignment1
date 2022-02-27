@@ -8,42 +8,42 @@
     <div>
         <form method="post" asp-controller="Customer" asp-action="Edit">
           <div class="mb-3">
-            <label asp-for="FirstName" class="form-label"></label>
+            <label asp-for="FirstName" class="form-label">First Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="FirstName"></span>
             <input asp-for="FirstName" type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label asp-for="LastName" class="form-label"></label>
+            <label asp-for="LastName" class="form-label">Last Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="LastName"></span>
             <input asp-for="LastName" type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Address"></label>
+            <label class="form-check-label" asp-for="Address">Address <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="Address"></span>
             <input asp-for="Address"type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="City"></label>
+            <label class="form-check-label" asp-for="City">City <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="City"></span>
             <input asp-for="City" type="text" class="form-control">
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="State"></label>
+            <label class="form-check-label" asp-for="State">State <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="State"></span>
             <input asp-for="State"type="text" class="form-control">
     
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="PostalCode"></label>
+            <label class="form-check-label" asp-for="PostalCode">Postal Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
             <span class="text-danger" asp-validation-for="PostalCode"></span>
             <input asp-for="PostalCode"type="text" class="form-control">
     
           </div>
 
           <div class="mb-3">
-              <label class="form-check-label" asp-for="Country"></label>
+              <label class="form-check-label" asp-for="Country">Country <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
               <span class="text-danger" asp-validation-for="Country"></span>
               <select class="form-select" asp-for="Country">
                   <option value="">Please select a country</option>
