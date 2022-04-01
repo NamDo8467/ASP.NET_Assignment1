@@ -1,62 +1,82 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="container">
-    <div class="pt-3">
-        <h2>
-            SportsPro Technical Support
-        </h2>
-        <p>Sports management software for the sports enthusiast</p>
+
+<div class="">
+    <div class="pt-3 d-flex introduction align-items-center justify-content-around px-5 pt-5">
+        <div>
+            <h2 class="text-white">
+                SportsPro Technical Support
+            </h2>
+            <p class="text-white">Sports management software for the sports enthusiast</p>
+            <a class="btn btn-outline-light" href="#getStarted"> Get started </a>
+        </div>
+        
+
+        <div>
+            <img src="img/Technical Image.png" width=500 height=400 />
+        </div>
     </div>
 
-    <div class="pt-3">
-        <h2>
-            Admin
-        </h2>
-        <table class="table table-bordered table-hover w-50">
-            <tbody>
-                <tr scope="row">
-                    <td>
-                        <a class="nav-link" asp-controller="Product" asp-action="List">Manage Products</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="nav-link" asp-controller="Technician" asp-action="List">Manage Technicians</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="nav-link" asp-controller="Customer" asp-action="List">Manage Customers</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="nav-link" asp-controller="Incident" asp-action="List">Manage Incidents</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="nav-link" asp-controller="Registration" asp-action="List">Manage Registrations</a>
-                    </td>
-                </tr>
-            </tbody>
+    <div class="container py-5">
+        <div class="" id="getStarted">
+            <h2>
+                Admin
+            </h2>
+            <div class="admin-cards d-flex justify-content-around align-items-center">
             
-        </table>
+                <div class="border p-2">
+                    <a class="nav-link fs-5" asp-controller="Product" asp-action="List"> <i class="bi bi-bag-check"></i> Manage Products</a>
+                </div>
+                <div class="border p-2">
+                    <a class="nav-link fs-5" asp-controller="Technician" asp-action="List"> <i class="bi bi-file-earmark-bar-graph text-warning"></i> Manage Technicians</a>
+                </div>
+                <div class="border p-2">
+                    <a class="nav-link fs-5" asp-controller="Customer" asp-action="List"> <i class="bi bi-file-earmark-person"></i> Manage Customers</a>
+                </div>
+                <div class="border p-2">
+                    <a class="nav-link fs-5" asp-controller="Incident" asp-action="List"> <i class="bi bi-exclamation-circle text-danger"></i> Manage Incidents</a>
+                </div>
+                <div class="border p-2">
+                    <a class="nav-link fs-5" asp-controller="Registration" asp-action="List"> <i class="bi bi-check-circle text-success"></i> Manage Registrations</a>
+                </div>
+            </div>
+            
+        </div>
+        <br/>
+        <div class="pt-3">
+            <h2>
+                Technicians
+            </h2>
+            <div class="technicians-cards">
+                <div class="d-flex px-4">
+                    <div class="border py-2 col-2">
+                    
+                        <a class="nav-link fs-5" asp-controller="Incident" asp-action="List"> <i class="bi bi-graph-up"></i> Update Incidents</a>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="pt-3">
-        <h2>
-            Technicians
-        </h2>
-        <table class="table table-bordered table-hover w-50">
-            <tbody>
-                <tr scope="row">
-                    <td>
-                        <a class="nav-link" asp-controller="Incident" asp-action="List">Update Incidents</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <br/>
+    <br/>
+    <br/>
+    <div class="newsletter text-center d-flex justify-content-center bg-light p-5">
+        <div class="row">
+            <h2>Join Our Newsletter</h2>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Email address">
+                <button class="btn btn-outline-primary" type="submit">Submit</button>
+            </form>
+        </div>
+        
     </div>
+    <br/>
+    <br/>
+    <br/>
+    
+    
 </div>
+   
