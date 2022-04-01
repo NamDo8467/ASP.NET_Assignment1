@@ -1,0 +1,15 @@
+﻿header{
+    position:absolute;
+    background-color:dodgerblue;
+    /*z-index:-1;*/
+}
+.introduction {
+    height: 550px;
+    /*background-image: url("../img//Soccer Ball.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;*/
+    /*background-color: #37517E;*/
+    background-color:dodgerblue;
+    /*opacity:0.85;*
+}
