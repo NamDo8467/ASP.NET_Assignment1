@@ -1,4 +1,4 @@
-﻿using GBCSports.Models;
+﻿using GBCSports.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

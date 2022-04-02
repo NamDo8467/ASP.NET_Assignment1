@@ -22,9 +22,10 @@ namespace GBCSports.Models
         public string Description { get; set; }
 
         public string? Technician { get; set; }
-        public DateTime? DateOpened { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = errorMessage)]
-        public DateTime DateClosed { get; set; } 
+        public DateTime? DateOpened { get; set; } = DateTime.Now;
+
+        public DateTime? DateClosed { get; set; }
     }
 }

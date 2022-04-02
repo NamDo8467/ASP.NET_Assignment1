@@ -1,0 +1,47 @@
+﻿ 
+@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Product Manager";
+}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="container">
+        <div class="pt-3"><h2>Product Manager</h2></div>
+        <table class="table table-striped" style="border">
+        <thead>
+            <tr>
+                <th class="text-center">Code</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Release Date</th>
+                <th class='text-center' colspan=2>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product good in Model)
+            {
+                <tr>
+                    <td class="text-center">@good.Code</td>
+                    <td class="text-center">@good.Name</td>
+                    <td class="text-center">$@good.Price</td>
+                    <td class="text-center">@good.Release_Date</td>
+
+                    <td class="text-center">
+                        <a class="btn btn-warning m-1" asp-controller="Product" asp-action="Edit" asp-route-id="@good.Id" name="Edit"> Edit</a>
+                        <a class="btn btn-danger m-1" asp-controller="Product" asp-action="Delete" asp-route-id="@good.Id"  name="Delete">Delete</a>
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+        
+    </table>
+    <div>
+    <a class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Add" name="Add Product">Add Product</a>
+    </div>
+    </div>
+
+    

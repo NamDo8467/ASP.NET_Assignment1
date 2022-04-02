@@ -1,0 +1,39 @@
+﻿@model GBCSports.Data.Product;
+
+@{
+    ViewBag.Title = "Add Product";
+}
+
+<div class="container">
+    <div><h2 class="pt-3">Add Product</h2></div>
+</div>
+<form method="post" asp-action="Add" asp-controller="Product">
+    <div class="form-group">
+        <label asp-for="Code">Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+         
+        <br/>
+        <span class="text-danger" asp-validation-for="Code"></span>
+        <input class="form-control" type="text" id="codeInput" asp-for="Code">
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+        <br/>
+        <span class="text-danger" asp-validation-for="Name"></span>
+        <input class="form-control" type="text" id="nameInput" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Yearly Price<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+        <br/>
+        <span class="text-danger" asp-validation-for="Price"></span>
+        <input class="form-control" type="text" id="priceInput" placeholder="0.00" asp-for="Price"> 
+    </div>
+    <div class="form-group">
+        <label asp-for="Release_Date">Release Date<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+        <br/>
+        <span class="text-danger" asp-validation-for="Release_Date"></span>
+        <input class="form-control" type="datetime-local"  placeholder="MM/DD/YYYY" asp-for="Release_Date">
+    </div>
+    <br>
+    <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="AddToDatabase">Save</button>
+    <button class="btn btn-danger" type="submit" asp-controller="Product" asp-action="List">Cancel</button>
+</form>

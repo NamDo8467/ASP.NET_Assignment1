@@ -1,0 +1,33 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Delete Product";
+}
+<div class="container">
+    <h2>Delete Product </h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Code">Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>     
+            <br/>           
+            <input class="form-control" disabled type="text" id="codeInput" asp-for="Code">
+        </div>
+        <div class="form-group">
+            <label asp-for="Name">Name<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <br/>        
+            <input class="form-control" disabled type="text" id="nameInput" asp-for="Name">
+        </div>
+        <div class="form-group">
+            <label asp-for="Price">Yearly Price<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <br/>
+            
+            <input class="form-control" disabled type="text" id="priceInput" placeholder="0.00" asp-for="Price"> 
+        </div>
+        <div class="form-group">
+            <label asp-for="Release_Date">Release Date<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <br/>
+            <input class="form-control" disabled type="datetime-local"  placeholder="MM/DD/YYYY" asp-for="Release_Date">
+        </div>
+        <br />
+        <button class="btn btn-danger" type="submit" asp-controller="Product" asp-action="Delete1" asp-route-id="@ViewBag.Id">Yes</button>
+        <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="List">No</button>
+    </form>
+</div>

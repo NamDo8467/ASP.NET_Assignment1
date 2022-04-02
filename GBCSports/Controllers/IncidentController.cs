@@ -23,7 +23,9 @@ namespace GBCSports.Controllers
         {
             Incident incident = new Incident();
             ViewBag.Customers = _db.Customers.ToList();
-         
+            ViewBag.Products = _db.Products.ToList();
+            ViewBag.Technicians = _db.Technicians.ToList();
+            
             return View("Add", incident);
         }
 
@@ -33,7 +35,9 @@ namespace GBCSports.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Customers = _db.Customers.ToList();
-                return View();
+                ViewBag.Products = _db.Products.ToList();
+                ViewBag.Technicians = _db.Technicians.ToList();
+                return View(incident);
             }
 
             _db.Incidents.Add(incident);
@@ -49,6 +53,9 @@ namespace GBCSports.Controllers
             }
 
             var incident = _db.Incidents.Find(id);
+            ViewBag.Customers = _db.Customers.ToList();
+            ViewBag.Products = _db.Products.ToList();
+            ViewBag.Technicians = _db.Technicians.ToList();
             if (incident == null)
             {
                 return NotFound();
@@ -63,8 +70,13 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Customers = _db.Customers.ToList();
+                ViewBag.Products = _db.Products.ToList();
+                ViewBag.Technicians = _db.Technicians.ToList();
+               
                 return View("Edit", incident);
             }
+
             _db.Incidents.Update(incident);
             _db.SaveChanges();
             return RedirectToAction("List");
@@ -76,19 +88,27 @@ namespace GBCSports.Controllers
             {
                 return NotFound();
             }
+            var incident = _db.Incidents.Find(id);
+            if(incident == null)
+            {
+                return NotFound();
+            }
+
             ViewBag.DeleteId = id;
-            return View("Delete");
+            return View(incident);
         }
 
         [HttpPost]
         public IActionResult DeleteIncident(int? id)
         {
+           
             if (id == null || id == 0)
             {
                 return NotFound();
             }
-           var incident =  _db.Incidents.Find(id);
-            if (incident == null) {
+            var incident = _db.Incidents.Find(id);
+            if(incident == null)
+            {
                 return NotFound();
             }
             _db.Incidents.Remove(incident);

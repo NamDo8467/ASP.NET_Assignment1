@@ -83,7 +83,8 @@ namespace GBCSports.Controllers
                 return View("Error");
             }
             ViewBag.DeleteId = id;
-            return View();
+            
+            return View(customer);
         }
 
         [HttpPost]

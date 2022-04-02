@@ -17,10 +17,39 @@ namespace GBCSports.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("GBCSports.Data.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("Price")
+                        .IsRequired()
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("Release_Date")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
+                });
 
             modelBuilder.Entity("GBCSports.Models.Country", b =>
                 {
@@ -37,63 +66,6 @@ namespace GBCSports.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Canada"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "VietNam"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "United States of America"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Russia"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Italy"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "France"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Spain"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "England"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Germany"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Netherlands"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Name = "Poland"
-                        });
                 });
 
             modelBuilder.Entity("GBCSports.Models.Customer", b =>
@@ -155,10 +127,11 @@ namespace GBCSports.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateClosed")
+                    b.Property<DateTime?>("DateClosed")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateOpened")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -179,6 +152,33 @@ namespace GBCSports.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Incidents");
+                });
+
+            modelBuilder.Entity("GBCSports.Models.Technician", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Phone")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Technicians");
                 });
 #pragma warning restore 612, 618
         }
