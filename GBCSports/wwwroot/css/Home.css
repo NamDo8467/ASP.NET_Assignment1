@@ -1,15 +1,54 @@
 ﻿header{
     position:absolute;
     background-color:dodgerblue;
-    /*z-index:-1;*/
 }
 .introduction {
     height: 550px;
-    /*background-image: url("../img//Soccer Ball.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;*/
-    /*background-color: #37517E;*/
-    background-color:dodgerblue;
-    /*opacity:0.85;*
+    background-color: dodgerblue;
+    
+}
+
+@keyframes technicalImage {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+    80%{
+        opacity:0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+    
+.technical-image{
+    animation-name: technicalImage;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode:backwards;
+}
+
+@keyframes getStarted {
+    0% {
+        left:-690px;
+    }    
+
+    100% {
+        left:0px;
+    }
+}
+
+.get-started{
+    position: relative;
+    animation-name: getStarted;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
 }
