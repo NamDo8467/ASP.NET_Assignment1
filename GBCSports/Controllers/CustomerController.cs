@@ -11,8 +11,11 @@ namespace GBCSports.Controllers
         {
             this.db = db;
         }
+
+        [Route("/customers")]
         public IActionResult List()
         {
+            TempData["Customer"] = "text-white";
             IEnumerable<Customer> customerList = db.Customers;
             
             return View("Index", customerList);
@@ -22,10 +25,16 @@ namespace GBCSports.Controllers
         /* Add actions */
         public IActionResult Add()
         {
-            IEnumerable<Country> countryList = db.Countries;
-            ViewBag.CountryList = countryList;
+            CustomerViewModel customerViewModel = new CustomerViewModel();
 
-            return View();
+            customerViewModel.CountryList = new List<string>();
+            foreach(Country country in db.Countries)
+            {
+                customerViewModel.CountryList.Add(country.Name);
+            }
+            //ViewBag.CountryList = countryList;
+
+            return View(customerViewModel);
         }
 
         [HttpPost]
@@ -52,11 +61,19 @@ namespace GBCSports.Controllers
             {
                 return View("Error");
             }
+
+            CustomerViewModel customerViewModel = new CustomerViewModel();
+
+            customerViewModel.Customer = customer;
+            customerViewModel.CountryList = new List<string>();
+            foreach (Country country in db.Countries)
+            {
+                customerViewModel.CountryList.Add(country.Name);
+            }
+
             
 
-            ViewBag.CountryList = db.Countries.ToList();
-
-            return View(customer);
+            return View(customerViewModel);
         }
 
         [HttpPost]

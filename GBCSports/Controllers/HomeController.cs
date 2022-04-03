@@ -15,6 +15,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Index()
         {
+            TempData["Home"] = "text-white";
             return View();
         }
 

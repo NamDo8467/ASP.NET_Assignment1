@@ -12,9 +12,11 @@ namespace GBCSports.Controllers
         {
             _db = db;
         }
+
+        [Route("/incidents")]
         public IActionResult List()
         {
-
+            TempData["Incident"] = "text-white";
             IEnumerable<Incident> incidents = _db.Incidents;
             return View("Index", incidents);
         }
