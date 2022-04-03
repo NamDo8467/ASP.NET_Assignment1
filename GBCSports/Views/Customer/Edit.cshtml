@@ -1,5 +1,9 @@
-﻿@model Customer
-
+﻿@model CustomerViewModel
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="container">
     <div>
         <h2>Edit Customer</h2>
@@ -8,53 +12,53 @@
     <div>
         <form method="post" asp-controller="Customer" asp-action="Edit">
           <div class="mb-3">
-            <label asp-for="FirstName" class="form-label">First Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="FirstName"></span>
-            <input asp-for="FirstName" type="text" class="form-control">
+            <label asp-for="@Model.Customer.FirstName" class="form-label">First Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.FirstName"></span>
+            <input asp-for="@Model.Customer.FirstName" type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label asp-for="LastName" class="form-label">Last Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="LastName"></span>
-            <input asp-for="LastName" type="text" class="form-control">
+            <label asp-for="@Model.Customer.LastName" class="form-label">Last Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.LastName"></span>
+            <input asp-for="@Model.Customer.LastName" type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Address">Address <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="Address"></span>
-            <input asp-for="Address"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.Address">Address <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.Address"></span>
+            <input asp-for="@Model.Customer.Address"type="text" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="City">City <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="City"></span>
-            <input asp-for="City" type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.City">City <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.City"></span>
+            <input asp-for="@Model.Customer.City" type="text" class="form-control">
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="State">State <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="State"></span>
-            <input asp-for="State"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.State">State <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.State"></span>
+            <input asp-for="@Model.Customer.State"type="text" class="form-control">
     
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="PostalCode">Postal Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="PostalCode"></span>
-            <input asp-for="PostalCode"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.PostalCode">Postal Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Customer.PostalCode"></span>
+            <input asp-for="@Model.Customer.PostalCode" type="text" class="form-control">
     
           </div>
 
           <div class="mb-3">
-              <label class="form-check-label" asp-for="Country">Country <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-              <span class="text-danger" asp-validation-for="Country"></span>
-              <select class="form-select" asp-for="Country">
+              <label class="form-check-label" asp-for="@Model.Customer.Country">Country <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+              <span class="text-danger" asp-validation-for="@Model.Customer.Country"></span>
+              <select class="form-select" asp-for="@Model.Customer.Country">
                   <option value="">Please select a country</option>
-                  @foreach (var country in @ViewBag.CountryList)
+                  @foreach (var country in @Model.CountryList)
                   {
-                        if (@country.Name == Model.Country)
+                        if (country == @Model.Customer.Country)
                         {
-                            <option value="@country.Name" selected>@country.Name</option>
+                            <option value="@country" selected>@country</option>
                         }else
                         {
-                            <option value="@country.Name">@country.Name</option>
+                            <option value="@country">@country</option>
                         }
                 
                   }
@@ -63,13 +67,13 @@
     
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Email"></label>
-            <input asp-for="Email"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.Email"></label>
+            <input asp-for="@Model.Customer.Email"type="text" class="form-control">
     
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Phone"></label>
-            <input asp-for="Phone"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Customer.Phone"></label>
+            <input asp-for="@Model.Customer.Phone"type="text" class="form-control">
     
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
