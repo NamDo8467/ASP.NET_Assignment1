@@ -1,4 +1,5 @@
 ﻿using GBCSports.Data;
+using GBCSports.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GBCSports.Controllers
