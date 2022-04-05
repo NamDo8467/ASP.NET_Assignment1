@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Incident>;
+﻿@model IncidentManagerViewModel
 <br/>
 <br/>
 <br/>
@@ -8,7 +8,16 @@
 	<div>
 		<h2>Incident Manager</h2>
 	</div>
-
+    <div class="filter-bar">
+        <ul class="nav nav-tabs">
+          <li class="nav-item d-flex">
+              <a class="nav-link @TempData["all"]" asp-route-Filter="all" asp-controller="Incident" >All Incidents</a>
+              <a class="nav-link @TempData["unassigned"]" asp-route-Filter="unassigned" asp-controller="Incident">Unassigned Incidents</a>
+              <a class="nav-link @TempData["open"]" asp-route-Filter="open" asp-controller="Incident">Open Incidents</a>
+          </li>
+        </ul>
+    </div>
+    
 	<table class="table">
         <thead>
         <tr>
@@ -21,7 +30,7 @@
         </tr>
         </thead>
         <tbody>
-            @foreach (var incident in Model)
+            @foreach (var incident in @Model.IncidentList)
             {
                 <tr>
                     <td>@incident.Title</td>
@@ -35,6 +44,8 @@
                     </td>
                 </tr>
             }
+            
+            
         
         </tbody>
     </table>

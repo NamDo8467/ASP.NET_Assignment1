@@ -1,69 +1,75 @@
-﻿@model Incident
+﻿@model IncidentViewModel
 @{
 	ViewData["Title"] = "Edit Incident";
 }
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <div class="container">
+	<div>@TempData["t"]</div>
 	<div>
 		<h2>Edit Incident</h2>
 	</div>
-
+	@if(@Model.CustomerName == "" || @Model.CustomerName == null){
+				  <div>null</div>
+			  }else{
+				  <div>not null</div>
+			  }
 	<div>
 		<form asp-controller="Incident" asp-action="Edit" method="post">
 		  <div class="mb-3">
-			<label asp-for="CustomerName" class="form-label">Customer <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<span asp-validation-for="CustomerName" class='text-danger'></span>
-			<select class="form-select" asp-for="CustomerName">
-				@foreach (var customer in ViewBag.Customers)
-				{
-					<option value="@customer.FirstName @customer.LastName">@customer.FirstName @customer.LastName</option>
-				}
-			</select>
-		  </div>
+			<label asp-for="@Model.CustomerName" class="form-label">Customer <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+			<span asp-validation-for="@Model.CustomerName" class='text-danger'></span>
+			<select class="form-select" asp-for="@Model.CustomerName" asp-items="@(new SelectList(Model.CustomerList))">
 
-		  <div class="mb-3">
-			<label asp-for="Product" class="form-label">Product <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<span asp-validation-for="Product" class='text-danger'></span>
-			<select class="form-select" asp-for="Product">
-				@foreach (var product in ViewBag.Products)
-				{
-					<option value="@product.Name">@product.Name</option>
-				}
+				<option value="">Please select a customer</option>
 				
 			</select>
 		  </div>
 
 		  <div class="mb-3">
-			<label asp-for="Title" class="form-label">Title <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<span asp-validation-for="Title" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="Title">
-		  </div>
-
-		  <div class="mb-3">
-			<label asp-for="Description" class="form-label">Description <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<span asp-validation-for="Description" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="Description">
-		  </div>
-
-
-		  <div class="mb-3">
-			<label asp-for="Technician" class="form-label">Techinician</label>
-			<select class="form-select" asp-for="Technician">
-				@foreach (var technician in ViewBag.Technicians)
-				{
-					<option value="@technician.FirstName @technician.LastName">@technician.FirstName @technician.LastName</option>
-				}
+			<label asp-for="@Model.Product" class="form-label">Product <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+			<span asp-validation-for="@Model.Product" class='text-danger'></span>
+			<select class="form-select" asp-for="@Model.Product" asp-items="@(new SelectList(Model.ProductList))">
+				<option value="">Please select a product</option>
+			
 			</select>
 		  </div>
 
 		  <div class="mb-3">
-			<label asp-for="DateOpened" step="any" class="form-label">Date Opened <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<input type="datetime-local" class="form-control" asp-for="DateOpened">
+			<label asp-for="@Model.Title" class="form-label">Title <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+			<span asp-validation-for="@Model.Title" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="@Model.Title">
 		  </div>
 
 		  <div class="mb-3">
-			<label asp-for="DateClosed" class="form-label">Date Closed</label>
-			<span asp-validation-for="DateClosed" class='text-danger'></span>
-			<input type="datetime-local" class="form-control" asp-for="DateClosed">
+			<label asp-for="@Model.Description" class="form-label">Description <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+			<span asp-validation-for="@Model.Description" class='text-danger'></span>
+			<input type="text" class="form-control" asp-for="@Model.Description">
+		  </div>
+
+
+		  <div class="mb-3">
+			<label asp-for="@Model.Technician" class="form-label">Technician</label>
+			<select class="form-select" asp-for="@Model.Technician" asp-items="@(new SelectList(Model.TechnicianList))">
+				
+				<option value="">Please select a technician</option>
+				
+			
+			</select>
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="@Model.DateOpened" step="any" class="form-label">Date Opened <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+			<input type="datetime-local" class="form-control" asp-for="@Model.DateOpened">
+		  </div>
+
+		  <div class="mb-3">
+			<label asp-for="@Model.DateClosed" class="form-label">Date Closed</label>
+			<span asp-validation-for="@Model.DateClosed" class='text-danger'></span>
+			<input type="datetime-local" class="form-control" asp-for="@Model.DateClosed">
 		  </div>
 			<button type="submit" class="btn btn-primary">Save</button>
 			<a asp-controller="Incident" asp-action="List" class="btn btn-danger">Cancel</a>
