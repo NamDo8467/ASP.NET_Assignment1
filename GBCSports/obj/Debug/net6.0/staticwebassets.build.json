@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qAJo/Ddqy+nvpED87e+rYfpgyWQWb1lMVkmVWpeydhE=",
+  "Hash": "QAYYFuqm3TasP8RthwVETC/WAS222/ObaoUVxE64uEc=",
   "Source": "GBCSports",
   "BasePath": "_content/GBCSports",
   "Mode": "Default",
@@ -168,23 +168,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Technical Image.png"
-    },
-    {
-      "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\Incident.js",
-      "SourceId": "GBCSports",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\",
-      "BasePath": "_content/GBCSports",
-      "RelativePath": "js/Incident.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Incident.js"
     },
     {
       "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\site.js",
