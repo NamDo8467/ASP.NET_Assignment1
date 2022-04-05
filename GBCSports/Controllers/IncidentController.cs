@@ -1,4 +1,4 @@
-﻿using GBCSports.Data;
+﻿ using GBCSports.Data;
 using GBCSports.Models;
 //using GBCSports.ViewModels;
 using Microsoft.AspNetCore.Mvc;

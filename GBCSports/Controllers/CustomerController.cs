@@ -12,29 +12,76 @@ namespace GBCSports.Controllers
             this.db = db;
         }
 
-        [Route("/customers")]
+        //[Route("/customers")]
         public IActionResult List()
         {
             TempData["Customer"] = "text-white";
             IEnumerable<Customer> customerList = db.Customers;
             
             return View("Index", customerList);
+
+            
+        }
+
+        private void ValidateFields(Customer customer)
+        {
+            if (customer.FirstName == null)
+            {
+                TempData[Convert.ToString(1)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.LastName == null)
+            {
+                TempData[Convert.ToString(2)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.Address == null)
+            {
+                TempData[Convert.ToString(3)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.City == null)
+            {
+                TempData[Convert.ToString(4)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.State == null)
+            {
+                TempData[Convert.ToString(5)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (customer.PostalCode== null)
+            {
+                TempData[Convert.ToString(6)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (customer.Country == null)
+            {
+                TempData[Convert.ToString(7)] = "background-color: #FECBA1; border-color:red;";
+
+            }
+            if (customer.Email == null)
+            {
+                TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (db.Customers.FirstOrDefault(c => c.Email == customer.Email) != null)
+            {
+                ModelState.AddModelError("Email", "Email address already in use");
+                TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (customer.Phone == null || customer.Phone != @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")
+            {
+                TempData[Convert.ToString(9)] = "background-color: #FECBA1; border-color:red;";
+            }
         }
 
 
         /* Add actions */
         public IActionResult Add()
         {
-            CustomerViewModel customerViewModel = new CustomerViewModel();
+            
+            ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
+       
 
-            customerViewModel.CountryList = new List<string>();
-            foreach(Country country in db.Countries)
-            {
-                customerViewModel.CountryList.Add(country.Name);
-            }
-            //ViewBag.CountryList = countryList;
-
-            return View(customerViewModel);
+            return View();
         }
 
         [HttpPost]
@@ -42,8 +89,13 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.CountryList = db.Countries.ToList();
-                return View(customer);
+
+                ValidateFields(customer);
+                ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
+
+                
+
+				return View(customer);
             }
 
             db.Customers.Add(customer);
@@ -57,23 +109,14 @@ namespace GBCSports.Controllers
         public IActionResult Edit(int id)
         {
             var customer = db.Customers.Find(id);
+
             if(customer == null)
             {
                 return View("Error");
             }
+            ViewBag.CountryList = db.Countries.ToList();
 
-            CustomerViewModel customerViewModel = new CustomerViewModel();
-
-            customerViewModel.Customer = customer;
-            customerViewModel.CountryList = new List<string>();
-            foreach (Country country in db.Countries)
-            {
-                customerViewModel.CountryList.Add(country.Name);
-            }
-
-            
-
-            return View(customerViewModel);
+            return View(customer);
         }
 
         [HttpPost]
@@ -81,6 +124,7 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ValidateFields(customer);
                 ViewBag.CountryList = db.Countries.ToList();
                 return View(customer);
             }
