@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GBCSports.Data
+namespace GBCSports.Models
 {
     public class Product
     {
