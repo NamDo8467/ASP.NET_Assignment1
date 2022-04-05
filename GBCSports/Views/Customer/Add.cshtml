@@ -50,7 +50,7 @@
               <label class="form-check-label" asp-for="@Model.Customer.Country">Country <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
               <span class="text-danger" asp-validation-for="@Model.Customer.Country"></span>
               <select class="form-select" asp-for="@Model.Customer.Country" asp-items="@(new SelectList(Model.CountryList))">
-                  <option value="">Please select a country</option>
+                  <option value="" disabled>Please select a country</option>
                   @*@foreach (var country in @ViewBag.CountryList)
                   {
                       <option value="@country.Name">@country.Name</option>
