@@ -44,12 +44,11 @@ namespace GBCSports.Models
         [Required(ErrorMessage = errorMessage)]
         public string Country { get; set; }
 
-        [StringLength(50, MinimumLength = 1)]
-        [DataType(DataType.EmailAddress)]
-        
-        public string Email { get; set; }
+        [StringLength(50, MinimumLength = 0)]
+        //[DataType(DataType.EmailAddress)]
+        public string? Email { get; set; }
 
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Phone number should be in '999-999-9999' format")]
         public string? Phone { get; set; }
     }
 }
