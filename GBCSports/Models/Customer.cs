@@ -40,5 +40,7 @@ namespace GBCSports.Models
         public string? Email { get; set; }
 
         public string? Phone { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

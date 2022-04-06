@@ -71,8 +71,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Registration/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Registration/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Registration/RegisterCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uXFJlZ2lzdGVyQ3VzdG9tZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Shared/Error.cshtml]

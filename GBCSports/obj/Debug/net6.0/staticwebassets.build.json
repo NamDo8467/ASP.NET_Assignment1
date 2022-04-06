@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3NjU0BC+SDCp4Dq7Cb9p6xOhDcy2iov6mIT0ZBC51ew=",
+  "Hash": "xMY7bIB+fH/5pIieeDwjs76gJRjZD6mKPCSJL+h/cVc=",
   "Source": "GBCSports",
   "BasePath": "_content/GBCSports",
   "Mode": "Default",
@@ -170,12 +170,12 @@
       "OriginalItemSpec": "wwwroot\\img\\Technical Image.png"
     },
     {
-      "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\Home.js",
+      "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\RegisterCustomer.js",
       "SourceId": "GBCSports",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\",
       "BasePath": "_content/GBCSports",
-      "RelativePath": "js/Home.js",
+      "RelativePath": "js/RegisterCustomer.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Home.js"
+      "OriginalItemSpec": "wwwroot\\js\\RegisterCustomer.js"
     },
     {
       "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\site.js",

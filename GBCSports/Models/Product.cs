@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GBCSports.Data
+namespace GBCSports.Models
 {
     public class Product
     {
@@ -23,5 +23,7 @@ namespace GBCSports.Data
 
         [Required(ErrorMessage = "Please provide Date")]
         public DateTime? Release_Date { get; set; } = DateTime.Now;
+
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }

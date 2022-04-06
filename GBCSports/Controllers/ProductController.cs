@@ -1,4 +1,5 @@
 ﻿using GBCSports.Data;
+using GBCSports.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GBCSports.Controllers
@@ -10,10 +11,33 @@ namespace GBCSports.Controllers
         {
             context = ctx;
         }
+        [Route("/products")]
         public IActionResult List()
         {
             var product = context.Products.OrderBy(c => c.Release_Date).ToList();
             return View(product);
+        }
+        private void ValidateFields(Product good)
+        {
+            if (good.Code == null)
+            {
+                TempData[Convert.ToString(1)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (good.Name == null)
+            {
+                TempData[Convert.ToString(2)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (good.Price == null || !double.TryParse(good.Price.ToString(), out double price))
+            {
+                TempData[Convert.ToString(3)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (good.Release_Date == null)
+            {
+                TempData[Convert.ToString(4)] = "background-color: #FECBA1; border-color:red;";
+            }
         }
 
         [HttpGet]
@@ -27,12 +51,17 @@ namespace GBCSports.Controllers
             
             if (ModelState.IsValid)
             {
-               
 
+               
                 context.Products.Add(good);
                 context.SaveChanges();
+                TempData["action"] = " was added";
+                TempData["productName"] = good.Name;
+                TempData["style"] = "bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+                TempData["height"] = "height: 100px;";
                 return RedirectToAction("List");
             }
+            ValidateFields(good);
             return View("Add", good);
         }
 
@@ -42,6 +71,7 @@ namespace GBCSports.Controllers
             var product = context.Products.FirstOrDefault(c => c.Id == id);
             return View(product);
         }
+       
 
         [HttpPost]
         public IActionResult Edit(Product good)
@@ -49,9 +79,13 @@ namespace GBCSports.Controllers
             if (ModelState.IsValid) 
             {
                 context.Products.Update(good);
-                context.SaveChanges();  
+                context.SaveChanges();
+                TempData["action"] = "Edit successfully";
+                TempData["style"] = "bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+                TempData["height"] = "height: 100px;";
                 return RedirectToAction("List");
             }
+            ValidateFields(good);
             return View("Edit",good);
         }
         [HttpGet]
@@ -77,6 +111,9 @@ namespace GBCSports.Controllers
             }
             context.Products.Remove(good);
             context.SaveChanges();
+            TempData["action"] = "Deleted successfully";
+            TempData["style"] = "bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             return RedirectToAction("List");
 
         }
