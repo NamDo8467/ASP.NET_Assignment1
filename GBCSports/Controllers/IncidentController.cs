@@ -17,7 +17,7 @@ namespace GBCSports.Controllers
         [Route("/incidents")]
         public IActionResult List()
         {
-
+            ViewData["Title"] = "Incident Manager";
             IncidentManagerViewModel incidentViewModel = new IncidentManagerViewModel();
             incidentViewModel.IncidentList = new List<Incident>();
             TempData["Incident"] = "text-white";
@@ -58,6 +58,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Add()
         {
+            ViewData["Title"] = "Add Incident";
             IncidentViewModel incidentViewModel = new IncidentViewModel();
             //Incident incident = new Incident();
 
@@ -77,6 +78,11 @@ namespace GBCSports.Controllers
                 ConfigureViewModel(incident);
                 return View(incident);
             }
+
+            TempData["incidentName"] = incident.Title;
+            TempData["action"] = " was added successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             Incident i = new Incident()
             {
                 CustomerName = incident.CustomerName,
@@ -97,6 +103,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Edit(int? id)
         {
+            ViewData["Title"] = "Edit Incident";
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -121,7 +128,7 @@ namespace GBCSports.Controllers
             incidentViewModel.DateClosed = incident.DateClosed;
             ConfigureViewModel(incidentViewModel);
 
-            TempData["t"] = incidentViewModel.CustomerName;
+           
 
 
             return View("Edit", incidentViewModel);
@@ -144,7 +151,10 @@ namespace GBCSports.Controllers
 
                 return View("Edit", incidentViewModel);
             }
-
+            
+            TempData["action"] = "Edited successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             _db.Incidents.Update(incident);
             _db.SaveChanges();
             return RedirectToAction("List", incidentViewModel);
@@ -152,6 +162,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Delete(int? id)
         {
+            ViewData["Title"] = "Delete Incident";
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -179,6 +190,9 @@ namespace GBCSports.Controllers
             {
                 return NotFound();
             }
+            TempData["action"] = "Deleted successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             _db.Incidents.Remove(incident);
             _db.SaveChanges();
             return RedirectToAction("List");

@@ -8,15 +8,10 @@
 <br/>
 <br/>
 <div class="container">
-	<div>@TempData["t"]</div>
 	<div>
 		<h2>Edit Incident</h2>
 	</div>
-	@if(@Model.CustomerName == "" || @Model.CustomerName == null){
-				  <div>null</div>
-			  }else{
-				  <div>not null</div>
-			  }
+	
 	<div>
 		<form asp-controller="Incident" asp-action="Edit" method="post">
 		  <div class="mb-3">
