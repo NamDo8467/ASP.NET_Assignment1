@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Customer/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

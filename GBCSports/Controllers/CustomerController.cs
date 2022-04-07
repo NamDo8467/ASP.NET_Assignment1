@@ -11,19 +11,80 @@ namespace GBCSports.Controllers
         {
             this.db = db;
         }
+
+        [Route("/customers")]
         public IActionResult List()
         {
+            ViewData["Title"] = "Customer Manager";
+            TempData["Customer"] = "text-white";
             IEnumerable<Customer> customerList = db.Customers;
             
             return View("Index", customerList);
+
+            
+        }
+
+        private void ValidateFields(Customer customer)
+        {
+            if (customer.FirstName == null)
+            {
+                TempData[Convert.ToString(1)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.LastName == null)
+            {
+                TempData[Convert.ToString(2)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.Address == null)
+            {
+                TempData[Convert.ToString(3)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.City == null)
+            {
+                TempData[Convert.ToString(4)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (customer.State == null)
+            {
+                TempData[Convert.ToString(5)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (customer.PostalCode== null)
+            {
+                TempData[Convert.ToString(6)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if (customer.Country == null)
+            {
+                TempData[Convert.ToString(7)] = "background-color: #FECBA1; border-color:red;";
+
+            }
+            if (customer.Email == null)
+            {
+                TempData[Convert.ToString(8)] = "";
+            }
+            if (db.Customers.FirstOrDefault(c => c.Email == customer.Email) != null)
+            {
+                ModelState.AddModelError("Email", "Email address already in use");
+                TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
+            }
+            if(customer.Phone == null)
+            {
+                TempData[Convert.ToString(9)] = "";
+            }
+            else if (customer.Phone != @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")
+            {
+                TempData[Convert.ToString(9)] = "background-color: #FECBA1; border-color:red;";
+            }
         }
 
 
         /* Add actions */
         public IActionResult Add()
         {
-            IEnumerable<Country> countryList = db.Countries;
-            ViewBag.CountryList = countryList;
+            ViewData["Add Customer"] = "Add Customer";
+            ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
+       
 
             return View();
         }
@@ -33,10 +94,18 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.CountryList = db.Countries.ToList();
-                return View(customer);
-            }
 
+                ValidateFields(customer);
+                ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
+
+                
+
+				return View(customer);
+            }
+            TempData["action"] = " was added successfully";
+            TempData["customerName"] = customer.FirstName + " " + customer.LastName;
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             db.Customers.Add(customer);
             db.SaveChanges();
             return RedirectToAction("List");
@@ -47,13 +116,13 @@ namespace GBCSports.Controllers
         /* Edit actions*/
         public IActionResult Edit(int id)
         {
+            ViewData["Title"] = "Edit Customer";
             var customer = db.Customers.Find(id);
+
             if(customer == null)
             {
                 return View("Error");
             }
-            
-
             ViewBag.CountryList = db.Countries.ToList();
 
             return View(customer);
@@ -64,10 +133,13 @@ namespace GBCSports.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ValidateFields(customer);
                 ViewBag.CountryList = db.Countries.ToList();
                 return View(customer);
             }
-
+            TempData["action"] = "Edidted successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             db.Customers.Update(customer);
             db.SaveChanges();
             return RedirectToAction("List");
@@ -77,6 +149,7 @@ namespace GBCSports.Controllers
         /* Delete actions */
         public IActionResult Delete(int id)
         {
+            ViewData["Title"] = "Delete Customer";
             var customer = db.Customers.Find(id);
             if (customer == null)
             {
@@ -95,7 +168,9 @@ namespace GBCSports.Controllers
             {
                 return View("Error");
             }
-
+            TempData["action"] = "Deleted successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("List");

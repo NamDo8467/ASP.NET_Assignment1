@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="~/css/CustomerStyleSheet.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Home.css" asp-append-version="true">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <style>
+    .nav-item > .main-nav:hover{
+        color:white !important;
+    }
+</style>
 </head>
+
 <body>
     <header class="w-100 d-flex justify-content-center p-3 mb-3">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
@@ -22,29 +29,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 d-flex">
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link main-nav @TempData["Home"]" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Product" asp-action="List">Products</a>
+                            <a class="nav-link main-nav @TempData["Product"]" asp-controller="Product" asp-action="List">Products</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Technician" asp-action="List">Technicians</a>
+                            <a class="nav-link main-nav @TempData["Technician"]" asp-controller="Technician" asp-action="List">Technicians</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Customer" asp-action="List">Customers</a>
+                            <a class="nav-link main-nav @TempData["Customer"]" asp-controller="Customer" asp-action="List">Customers</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Incident" asp-action="List">Incidents</a>
+                            <a class="nav-link main-nav @TempData["Incident"]" asp-controller="Incident" asp-action="List">Incidents</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Registration" asp-action="List">Registration</a>
-                            @*<a class="nav-link text-white">Registrations</a>*@
-
+                            <a class="nav-link main-nav @TempData["Registration"]" asp-controller="Registration" asp-action="List">Registration</a>
                         </li>
 
                         <li class="nav-item mx-2">
-                            @*<a class="nav-link text-white" asp-area="" asp-controller="About" asp-action="Index">About</a>*@
-                            <a class="nav-link text-white">About</a>
+                            <a class="nav-link main-nav @TempData["About"]" asp-controller="About" asp-action="Index">About</a>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +69,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/Home.js" asp-append-version="true"></script>
+    <script src="~/js/OperationMessage.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

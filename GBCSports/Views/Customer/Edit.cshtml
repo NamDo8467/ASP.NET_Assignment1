@@ -1,4 +1,11 @@
 ﻿@model Customer
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
 
 <div class="container">
     <div>
@@ -8,44 +15,44 @@
     <div>
         <form method="post" asp-controller="Customer" asp-action="Edit">
           <div class="mb-3">
-            <label asp-for="FirstName" class="form-label">First Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="FirstName"></span>
-            <input asp-for="FirstName" type="text" class="form-control">
+            <label asp-for="@Model.FirstName" class="form-label">First Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.FirstName"></span>
+            <input asp-for="@Model.FirstName" type="text" class="form-control" style="@TempData["1"]">
           </div>
           <div class="mb-3">
-            <label asp-for="LastName" class="form-label">Last Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="LastName"></span>
-            <input asp-for="LastName" type="text" class="form-control">
+            <label asp-for="@Model.LastName" class="form-label">Last Name <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.LastName"></span>
+            <input asp-for="@Model.LastName" type="text" class="form-control" style="@TempData["2"]">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Address">Address <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="Address"></span>
-            <input asp-for="Address"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Address">Address <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.Address"></span>
+            <input asp-for="@Model.Address"type="text" class="form-control" style="@TempData["3"]">
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="City">City <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="City"></span>
-            <input asp-for="City" type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.City">City <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.City"></span>
+            <input asp-for="@Model.City" type="text" class="form-control" style="@TempData["4"]">
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="State">State <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="State"></span>
-            <input asp-for="State"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.State">State <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.State"></span>
+            <input asp-for="@Model.State"type="text" class="form-control" style="@TempData["5"]">
     
           </div>
 
           <div class="mb-3">
-            <label class="form-check-label" asp-for="PostalCode">Postal Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-            <span class="text-danger" asp-validation-for="PostalCode"></span>
-            <input asp-for="PostalCode"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.PostalCode">Postal Code <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
+            <span class="text-danger" asp-validation-for="@Model.PostalCode"></span>
+            <input asp-for="@Model.PostalCode" type="text" class="form-control" style="@TempData["6"]">
     
           </div>
 
           <div class="mb-3">
               <label class="form-check-label" asp-for="Country">Country <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
               <span class="text-danger" asp-validation-for="Country"></span>
-              <select class="form-select" asp-for="Country">
+              <select class="form-select" asp-for="Country" style="@TempData["7"]">
                   <option value="">Please select a country</option>
                   @foreach (var country in @ViewBag.CountryList)
                   {
@@ -63,13 +70,15 @@
     
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Email"></label>
-            <input asp-for="Email"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Email"></label>
+            <span class="text-danger" asp-validation-for="@Model.Email"></span>
+            <input asp-for="@Model.Email"type="text" class="form-control" style="@TempData["8"]">
     
           </div>
           <div class="mb-3">
-            <label class="form-check-label" asp-for="Phone"></label>
-            <input asp-for="Phone"type="text" class="form-control">
+            <label class="form-check-label" asp-for="@Model.Phone"></label>
+            <span class="text-danger" asp-validation-for="@Model.Phone"></span>
+            <input asp-for="@Model.Phone"type="text" class="form-control" style="@TempData["9"]">
     
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -79,4 +88,3 @@
         </form>
     </div>
 </div>
-
