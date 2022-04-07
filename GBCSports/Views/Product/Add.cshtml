@@ -37,6 +37,7 @@
         <span class="text-danger" asp-validation-for="Release_Date"></span>
         <input class="form-control" type="datetime-local"  placeholder="MM/DD/YYYY" asp-for="Release_Date" style="@TempData["4"]">
     </div>
+    <input type="hidden" value="" asp-for="Customers"/>
     <br>
     <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="AddToDatabase">Save</button>
     <button class="btn btn-danger" type="submit" asp-controller="Product" asp-action="List">Cancel</button>
