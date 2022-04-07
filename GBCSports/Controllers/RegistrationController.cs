@@ -90,7 +90,9 @@ namespace GBCSports.Controllers
             registerProduct.ProductId = vm.RegisteredProductId;
             registerProduct.CustomerId = vm.CustomerId;
             context.RegisterProducts.Add(registerProduct);
-
+            TempData["action"] = "Registered successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             context.SaveChanges();
             return RedirectToAction("List");
         }
@@ -119,10 +121,14 @@ namespace GBCSports.Controllers
             {
                return RedirectToAction("Error");
             }
+
+            TempData["action"] = "Unregistered successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
             context.RegisterProducts.Remove(product);
             context.SaveChanges();
 
-            return RedirectToAction("List");        
+            return RedirectToAction("RegisterCustomer");        
         }
 
         public IActionResult Error()
