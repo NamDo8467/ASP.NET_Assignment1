@@ -5,7 +5,7 @@ namespace GBCSports.Models
     public class IncidentViewModel
     {
         public const string errorMessage = "Can not leave this field empty";
-        //public Incident CurrentIncident { get; set; }
+        
         public int Id { get; set; }
 
         [Required(ErrorMessage = errorMessage)]
