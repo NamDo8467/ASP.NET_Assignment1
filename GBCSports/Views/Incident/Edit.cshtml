@@ -17,7 +17,7 @@
 		  <div class="mb-3">
 			<label asp-for="@Model.CustomerName" class="form-label">Customer <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
 			<span asp-validation-for="@Model.CustomerName" class='text-danger'></span>
-			<select class="form-select" asp-for="@Model.CustomerName" asp-items="@(new SelectList(Model.CustomerList))">
+			<select class="form-select" style="@TempData["1"]" asp-for="@Model.CustomerName" asp-items="@(new SelectList(Model.CustomerList))">
 
 				<option value="">Please select a customer</option>
 				
@@ -27,7 +27,7 @@
 		  <div class="mb-3">
 			<label asp-for="@Model.Product" class="form-label">Product <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
 			<span asp-validation-for="@Model.Product" class='text-danger'></span>
-			<select class="form-select" asp-for="@Model.Product" asp-items="@(new SelectList(Model.ProductList))">
+			<select class="form-select" style="@TempData["2"]" asp-for="@Model.Product" asp-items="@(new SelectList(Model.ProductList))">
 				<option value="">Please select a product</option>
 			
 			</select>
@@ -36,13 +36,13 @@
 		  <div class="mb-3">
 			<label asp-for="@Model.Title" class="form-label">Title <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
 			<span asp-validation-for="@Model.Title" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="@Model.Title">
+			<input type="text" style="@TempData["3"]" class="form-control" asp-for="@Model.Title">
 		  </div>
 
 		  <div class="mb-3">
 			<label asp-for="@Model.Description" class="form-label">Description <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
 			<span asp-validation-for="@Model.Description" class='text-danger'></span>
-			<input type="text" class="form-control" asp-for="@Model.Description">
+			<input type="text" style="@TempData["4"]" class="form-control" asp-for="@Model.Description">
 		  </div>
 
 
@@ -58,7 +58,7 @@
 
 		  <div class="mb-3">
 			<label asp-for="@Model.DateOpened" step="any" class="form-label">Date Opened <span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
-			<input type="datetime-local" class="form-control" asp-for="@Model.DateOpened">
+			<input type="datetime-local" style="@TempData["5"]" class="form-control" asp-for="@Model.DateOpened">
 		  </div>
 
 		  <div class="mb-3">
@@ -66,6 +66,22 @@
 			<span asp-validation-for="@Model.DateClosed" class='text-danger'></span>
 			<input type="datetime-local" class="form-control" asp-for="@Model.DateClosed">
 		  </div>
+
+		  @for (var i = 0; i < Model.CustomerList.Count; i++)
+		  {
+			  <input asp-for="@Model.CustomerList" value="@Model.CustomerList[i]" hidden/>
+		  }
+
+
+		  @for (var i = 0; i < Model.ProductList.Count; i++)
+		  {
+			  <input asp-for="@Model.ProductList" value="@Model.ProductList[i]" hidden/>
+		  }
+		  
+		  @for (var i = 0; i < Model.TechnicianList.Count; i++)
+		  {
+			  <input asp-for="@Model.TechnicianList" value="@Model.TechnicianList[i]" hidden/>
+		  }
 			<button type="submit" class="btn btn-primary">Save</button>
 			<a asp-controller="Incident" asp-action="List" class="btn btn-danger">Cancel</a>
 		  
