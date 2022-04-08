@@ -55,12 +55,39 @@ namespace GBCSports.Controllers
             incidentViewModel.TechnicianList = new List<string>();
             incidentViewModel.TechnicianList = _db.Technicians.Select(technician => technician.FirstName + " " + technician.LastName).ToList();
         }
+        private void ValidateFields(Incident incident)
+        {
+            if (incident.CustomerName == null)
+            {
+                TempData[Convert.ToString(1)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (incident.Product == null)
+            {
+                TempData[Convert.ToString(2)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (incident.Title == null)
+            {
+                TempData[Convert.ToString(3)] = "background-color: #FECBA1; border-color:red;";
+            }
+
+            if (incident.Description == null)
+            {
+                TempData[Convert.ToString(4)] = "background-color: #FECBA1; border-color:red;";
+            }
+            
+            if (incident.DateOpened == null)
+            {
+                TempData[Convert.ToString(5)] = "background-color: #FECBA1; border-color:red;";
+            }
+            
+        }
 
         public IActionResult Add()
         {
             ViewData["Title"] = "Add Incident";
             IncidentViewModel incidentViewModel = new IncidentViewModel();
-            //Incident incident = new Incident();
 
             ConfigureViewModel(incidentViewModel);
 
@@ -70,20 +97,7 @@ namespace GBCSports.Controllers
         [HttpPost]
         public IActionResult Add(IncidentViewModel incident)
         {
-            
-            if (!ModelState.IsValid)
-            {
-                
-                //TempData["m"] = incident.CustomerName;
-                ConfigureViewModel(incident);
-                return View(incident);
-            }
-
-            TempData["incidentName"] = incident.Title;
-            TempData["action"] = " was added successfully";
-            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
-            TempData["height"] = "height: 100px;";
-            Incident i = new Incident()
+           Incident i = new Incident()
             {
                 CustomerName = incident.CustomerName,
                 Product = incident.Product,
@@ -95,6 +109,17 @@ namespace GBCSports.Controllers
                 DateClosed = incident.DateClosed,
 
             };
+            if (!ModelState.IsValid)
+            {
+                ValidateFields(i);                
+                return View(incident);
+            }
+
+            TempData["incidentName"] = incident.Title;
+            TempData["action"] = " was added successfully";
+            TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
+            TempData["height"] = "height: 100px;";
+            
 
             _db.Incidents.Add(i);
             _db.SaveChanges();
@@ -135,29 +160,40 @@ namespace GBCSports.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Incident incident)
+        public IActionResult Edit(IncidentViewModel incident)
         {
-            IncidentViewModel incidentViewModel = new IncidentViewModel();
+            
+            
+            Incident i = new Incident()
+            {
+                CustomerName = incident.CustomerName,
+                Product = incident.Product,
+                Title = incident.Title,
+                Description = incident.Description,
+
+                Technician = incident.Technician,
+                DateOpened = incident.DateOpened,
+                DateClosed = incident.DateClosed,
+
+            };
             if (!ModelState.IsValid)
             {
-                ConfigureViewModel(incidentViewModel);
-                incidentViewModel.CustomerName = incident.CustomerName;
-                incidentViewModel.Product = incident.Product;
-                incidentViewModel.Title = incident.Title;
-                incidentViewModel.Description = incident.Description;
-                incidentViewModel.Technician = incident.Technician;
-                incidentViewModel.DateOpened = incident.DateOpened;
-                incidentViewModel.DateClosed = incident.DateClosed;
+                
+                ValidateFields(i);
+                
+         
 
-                return View("Edit", incidentViewModel);
+                return View("Edit", incident);
             }
-            
+
             TempData["action"] = "Edited successfully";
             TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
             TempData["height"] = "height: 100px;";
-            _db.Incidents.Update(incident);
+            _db.Incidents.Update(i);
             _db.SaveChanges();
-            return RedirectToAction("List", incidentViewModel);
+            return RedirectToAction("List", incident);
+            
+
         }
 
         public IActionResult Delete(int? id)

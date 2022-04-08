@@ -63,10 +63,21 @@ namespace GBCSports.Controllers
             {
                 TempData[Convert.ToString(8)] = "";
             }
-            if (db.Customers.FirstOrDefault(c => c.Email == customer.Email) != null)
+            else if (db.Customers.FirstOrDefault(c => c.Email == customer.Email) != null)
             {
-                ModelState.AddModelError("Email", "Email address already in use");
-                TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
+                Customer c = db.Customers.FirstOrDefault(c => c.Email == customer.Email);
+                
+                if (customer.FirstName != c.FirstName && customer.LastName != c.LastName && customer.Address != c.Address
+                    && customer.City != c.City && customer.State != c.State && customer.PostalCode != c.PostalCode
+                    && customer.Country != c.Country && customer.Email == c.Email)
+                {
+                   
+                    ModelState.AddModelError("Email", "Email address already in use");
+                    TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
+                }  
+                
+                
+                
             }
             if(customer.Phone == null)
             {
@@ -131,6 +142,9 @@ namespace GBCSports.Controllers
         [HttpPost]
         public IActionResult Edit(Customer customer)
         {
+                ValidateFields(customer);
+
+
             if (!ModelState.IsValid)
             {
                 ValidateFields(customer);
