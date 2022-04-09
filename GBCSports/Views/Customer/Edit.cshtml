@@ -81,6 +81,7 @@
             <input asp-for="@Model.Phone"type="text" class="form-control" style="@TempData["9"]">
     
           </div>
+          <input type="hidden" asp-for="@Model.Products" value=""/>
           <button type="submit" class="btn btn-primary">Submit</button>
           <a class="btn btn-danger" asp-controller="Customer" asp-action="List">
               Cancel

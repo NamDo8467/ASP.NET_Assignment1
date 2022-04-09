@@ -17,6 +17,7 @@ namespace GBCSports.Controllers
         [Route("/registration/getcustomer")]
         public IActionResult List()
         {
+            TempData["Registration"] = "text-white";
             var vm = new RegistrationGetCustomerViewModel();
             vm.CustomerList = new List<string>();
             vm.CustomerList = db.Customers.Select(customer => customer.FirstName + " " + customer.LastName).ToList();
@@ -40,7 +41,7 @@ namespace GBCSports.Controllers
         [Route("/registration")]
         public IActionResult RegisterCustomer()
         {
-
+            TempData["Registration"] = "text-white";
             RegistrationGetCustomerViewModel vm = new RegistrationGetCustomerViewModel();
             if (HttpContext.Request.Query["id"].ToString() != "")
             {
@@ -94,6 +95,7 @@ namespace GBCSports.Controllers
         [HttpPost]
         public RedirectToActionResult RegisterProductToCustomer(RegistrationGetCustomerViewModel vm)
         {
+            
             RegisterProduct registerProduct = new RegisterProduct();
             registerProduct.ProductId = vm.RegisteredProductId;
             registerProduct.CustomerId = vm.CustomerId;
@@ -110,6 +112,7 @@ namespace GBCSports.Controllers
         public IActionResult GetDeleteView()
 
         {
+            TempData["Registration"] = "text-white";
             string id = HttpContext.Request.Query["productId"].ToString();
             ViewBag.ProductId = id;
 
