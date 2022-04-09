@@ -14,6 +14,7 @@ namespace GBCSports.Controllers
 
         public IActionResult List()
         {
+            TempData["Customer"] = "text-white";
             IEnumerable<Technician> technicianList = db.Technicians;
             return View(technicianList);
         }

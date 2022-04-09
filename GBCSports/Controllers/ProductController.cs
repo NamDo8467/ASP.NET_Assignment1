@@ -14,6 +14,7 @@ namespace GBCSports.Controllers
         [Route("/products")]
         public ViewResult List()
         {
+            TempData["Customer"] = "text-white";
             var product = context.Products.OrderBy(c => c.Release_Date).ToList();
             return View(product);
         }
