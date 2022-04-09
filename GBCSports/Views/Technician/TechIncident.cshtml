@@ -1,0 +1,33 @@
+﻿@using GBCSports.ViewModels
+@model TechIncidentViewModel
+@{
+    ViewData["Title"] = "Register Page";
+}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container" style="height:240px;">
+    <div class="pt-3">
+        <h2>Technician</h2>
+    </div>
+    <div class="@TempData["style"]" style="@TempData["height"]" >@TempData["productName"] @TempData["action"]</div>
+	
+    <form method="post" asp-action="RedirectToUpdateIncident" asp-controller="Technician">
+       <select class="form-select select-customer" asp-for="@Model.TechnicianId">
+           @for (var i = 0; i < @Model.TechnicianList.Count; i++)
+           {
+               <option value="@Model.TechnicianIdList[i]">@Model.TechnicianList[i]</option>
+           
+           }
+       </select>
+        <br/>
+       
+
+        <button class="btn btn-primary" type="submit" id="register-button">Enter</button>
+        <button class="btn btn-danger" type="submit" id="Cancel" asp-action="Index" asp-controller="Home">Cancel</button>
+    </form>
+    
+</div>

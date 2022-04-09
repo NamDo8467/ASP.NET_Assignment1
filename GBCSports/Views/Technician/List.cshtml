@@ -1,16 +1,26 @@
 ﻿@model IEnumerable<Technician>;
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Technician";
+	
 }
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 <div class="container">
+	<div class="container">
+    @if(TempData["success"] != null) 
+    {
+        <h4 class="operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3">@TempData["success"]</h4>
+    }
+    @if(TempData["error"] != null) 
+    {
+        <h4 class="operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3">@TempData["error"]</h4>
+    }
     <h2>Technician Manager</h2>
 
-    <table class="table table-striped">
+    <table class="table table-striped" method="post">
         <thead>
             <tr>
                 <th scope="col" class="text-center">Name</th>
@@ -37,4 +47,5 @@
     </table>
 
     <a asp-controller="Technician" asp-action="Add" class="btn btn-primary p-2">Add</a>
+</div>
 </div>

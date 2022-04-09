@@ -1,4 +1,31 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿html {
+    font - size: 14px;
+}
 
-// Write your JavaScript code.
+@media(min - width: 768px) {
+    html {
+        font - size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min - height: 100 %;
+}
+
+body {
+    margin - bottom: 60px;
+}
+
+.input - validation - error {
+    border: 2px solid #dc3545; /* same red as text-danger /
+    background-color: #faebd7; / antique white */
+}
+
+.validation - summary - valid {
+    display: none;
+}
+
+.validation - summary - errors ul {
+    list - style: none;
+}

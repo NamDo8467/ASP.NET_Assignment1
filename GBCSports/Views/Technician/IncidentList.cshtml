@@ -1,0 +1,58 @@
+﻿@using GBCSports.ViewModels
+@using Microsoft.AspNetCore.Http
+@model TechIncidentViewModel
+@{
+    ViewData["Title"] = "Update Incident";
+}
+<br/>
+<br/>
+
+<br/>
+
+<br/>
+
+<br/>
+<div class="container">
+	<div class="pt-3">
+		<h2>Technician: @TempData["technician"]</h2>
+        <br/>
+        <h2>Assigned/Open Incidents</h2>
+	</div>
+    
+	    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Customer</th>
+                    <th class="text-center">Product</th>
+                    <th class="text-center">Date Opened</th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var incident in Model.AssignedIncidentList)
+                {
+                    <tr>
+                        <td class="text-center">@incident.Title</td>
+                        <td class="text-center">@incident.CustomerName</td>
+                        <td class="text-center">@incident.Product</td>
+                        <td class="text-center">@incident.DateOpened</td>
+                        
+
+                        <td class="text-center">
+                            <a class="btn btn-danger m-1" asp-controller="Technician" asp-action="EditIncident" asp-route-id="@incident.Id">Edit</a>
+                        
+                        </td>
+                    
+                    </tr>
+                }
+            </tbody>
+        
+        </table>
+        <br/>
+        <br/>
+        <br/>
+        <a class="btn btn-primary" asp-controller="Technician" asp-action="TechIncident">Switch Technician</a>
+        
+    
+</div>
