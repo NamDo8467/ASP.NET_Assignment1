@@ -18,10 +18,10 @@ namespace GBCSports.Controllers
             ViewData["Title"] = "Customer Manager";
             TempData["Customer"] = "text-white";
             IEnumerable<Customer> customerList = db.Customers;
-            
+
             return View("Index", customerList);
 
-            
+
         }
 
         private void ValidateFields(Customer customer)
@@ -50,7 +50,7 @@ namespace GBCSports.Controllers
             {
                 TempData[Convert.ToString(5)] = "background-color: #FECBA1; border-color:red;";
             }
-            if (customer.PostalCode== null)
+            if (customer.PostalCode == null)
             {
                 TempData[Convert.ToString(6)] = "background-color: #FECBA1; border-color:red;";
             }
@@ -66,20 +66,20 @@ namespace GBCSports.Controllers
             else if (db.Customers.FirstOrDefault(c => c.Email == customer.Email) != null)
             {
                 Customer c = db.Customers.FirstOrDefault(c => c.Email == customer.Email);
-                
+
                 if (customer.FirstName != c.FirstName && customer.LastName != c.LastName && customer.Address != c.Address
                     && customer.City != c.City && customer.State != c.State && customer.PostalCode != c.PostalCode
                     && customer.Country != c.Country && customer.Email == c.Email)
                 {
-                   
+
                     ModelState.AddModelError("Email", "Email address already in use");
                     TempData[Convert.ToString(8)] = "background-color: #FECBA1; border-color:red;";
-                }  
-                
-                
-                
+                }
+
+
+
             }
-            if(customer.Phone == null)
+            if (customer.Phone == null)
             {
                 TempData[Convert.ToString(9)] = "";
             }
@@ -93,9 +93,10 @@ namespace GBCSports.Controllers
         /* Add actions */
         public IActionResult Add()
         {
+            TempData["Customer"] = "text-white";
             ViewData["Add Customer"] = "Add Customer";
             ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
-       
+
 
             return View();
         }
@@ -109,9 +110,9 @@ namespace GBCSports.Controllers
                 ValidateFields(customer);
                 ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
 
-                
 
-				return View(customer);
+
+                return View(customer);
             }
             TempData["action"] = " was added successfully";
             TempData["customerName"] = customer.FirstName + " " + customer.LastName;
@@ -127,10 +128,11 @@ namespace GBCSports.Controllers
         /* Edit actions*/
         public IActionResult Edit(int id)
         {
+            TempData["Customer"] = "text-white";
             ViewData["Title"] = "Edit Customer";
             var customer = db.Customers.Find(id);
 
-            if(customer == null)
+            if (customer == null)
             {
                 return View("Error");
             }
@@ -142,7 +144,9 @@ namespace GBCSports.Controllers
         [HttpPost]
         public IActionResult Edit(Customer customer)
         {
-                ValidateFields(customer);
+            TempData["Customer"] = "text-white";
+
+            ValidateFields(customer);
 
 
             if (!ModelState.IsValid)
@@ -151,18 +155,21 @@ namespace GBCSports.Controllers
                 ViewBag.CountryList = db.Countries.ToList();
                 return View(customer);
             }
+            
             TempData["action"] = "Edidted successfully";
             TempData["style"] = "operation-message bg-success w-100 text-white fw-bold d-flex align-items-center justify-content-center fs-2 my-3";
             TempData["height"] = "height: 100px;";
+           
             db.Customers.Update(customer);
             db.SaveChanges();
-            return RedirectToAction("List");
+            return RedirectToAction("List"); ;
         }
 
 
         /* Delete actions */
         public IActionResult Delete(int id)
         {
+            TempData["Customer"] = "text-white";
             ViewData["Title"] = "Delete Customer";
             var customer = db.Customers.Find(id);
             if (customer == null)
@@ -170,7 +177,7 @@ namespace GBCSports.Controllers
                 return View("Error");
             }
             ViewBag.DeleteId = id;
-            
+
             return View(customer);
         }
 

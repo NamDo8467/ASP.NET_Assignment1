@@ -3,7 +3,9 @@
 <br/>
 <br/>
 <br/>
-
+@{
+    ViewData["Title"] = "Add Customer";
+}
 <div class="container">
     <div>
         <h2>Add Customer</h2>
@@ -71,6 +73,7 @@
             <input asp-for="@Model.Phone" type="text" class="form-control" style="@TempData["9"]">
     
           </div>
+          <input type="hidden" value="" asp-for="Products"/>
           <button type="submit" class="btn btn-primary">Submit</button>
           <a class="btn btn-danger" asp-controller="Customer" asp-action="List">
               Cancel

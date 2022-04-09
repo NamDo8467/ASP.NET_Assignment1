@@ -17,6 +17,7 @@ namespace GBCSports.Controllers
         [Route("/registration/getcustomer")]
         public IActionResult List()
         {
+            TempData["Registration"] = "text-white";
             var vm = new RegistrationGetCustomerViewModel();
             vm.CustomerList = new List<string>();
             vm.CustomerList = context.Customers.Select(customer => customer.FirstName + " " + customer.LastName).ToList();  

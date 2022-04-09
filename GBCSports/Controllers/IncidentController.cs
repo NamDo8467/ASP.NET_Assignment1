@@ -17,7 +17,7 @@ namespace GBCSports.Controllers
         [Route("/incidents")]
         public IActionResult List()
         {
-            ViewData["Title"] = "Incident Manager";
+            
             IncidentManagerViewModel incidentViewModel = new IncidentManagerViewModel();
             incidentViewModel.IncidentList = new List<Incident>();
             TempData["Incident"] = "text-white";

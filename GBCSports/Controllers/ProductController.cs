@@ -15,6 +15,7 @@ namespace GBCSports.Controllers
         public ViewResult List()
         {
             TempData["Product"] = "text-white";
+            
             var product = context.Products.OrderBy(c => c.Release_Date).ToList();
             return View(product);
         }
@@ -44,6 +45,7 @@ namespace GBCSports.Controllers
         [HttpGet]
         public ViewResult Add()
         {
+            TempData["Product"] = "text-white";
             return View();
         }
         [HttpPost]
@@ -70,6 +72,7 @@ namespace GBCSports.Controllers
         [HttpGet]
         public ViewResult Edit(int id)
         {
+            TempData["Product"] = "text-white";
             var product = context.Products.FirstOrDefault(c => c.Id == id);
             return View(product);
         }
@@ -87,15 +90,15 @@ namespace GBCSports.Controllers
                 TempData["height"] = "height: 100px;";
                 return RedirectToAction("List");
             }
-            TempData["d"] = "error";
+            
             ValidateFields(good);
             return View("Edit",good);
         }
         [HttpGet]
         public ViewResult Delete(int id)
         {
+            TempData["Product"] = "text-white";
 
-            
             ViewBag.Id = id;
             var product = context.Products.FirstOrDefault(c => c.Id == id);
             if (product == null) return View("Error");
