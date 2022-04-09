@@ -107,8 +107,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY2lhblxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Technician/EditIncident.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY2lhblxFZGl0SW5jaWRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Technician/IncidentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY2lhblxJbmNpZGVudExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Technician/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY2lhblxMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/Technician/TechIncident.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY2lhblxUZWNoSW5jaWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/COLLEGE/Semester 4/Web Application Development/Assignment 1/GBCSports/Views/_ViewImports.cshtml]
