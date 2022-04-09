@@ -87,6 +87,7 @@ namespace GBCSports.Controllers
         public IActionResult Add()
         {
             ViewData["Title"] = "Add Incident";
+            TempData["Incident"] = "text-white";
             IncidentViewModel incidentViewModel = new IncidentViewModel();
 
             ConfigureViewModel(incidentViewModel);
@@ -128,6 +129,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Edit(int? id)
         {
+            TempData["Incident"] = "text-white";
             ViewData["Title"] = "Edit Incident";
             if (id == null || id == 0)
             {
@@ -198,6 +200,7 @@ namespace GBCSports.Controllers
 
         public IActionResult Delete(int? id)
         {
+            TempData["Incident"] = "text-white";
             ViewData["Title"] = "Delete Incident";
             if (id == null || id == 0)
             {

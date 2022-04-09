@@ -93,6 +93,7 @@ namespace GBCSports.Controllers
         /* Add actions */
         public IActionResult Add()
         {
+            TempData["Customer"] = "text-white";
             ViewData["Add Customer"] = "Add Customer";
             ViewBag.CountryList = db.Countries.Select(country => country.Name).ToList();
        
@@ -127,6 +128,7 @@ namespace GBCSports.Controllers
         /* Edit actions*/
         public IActionResult Edit(int id)
         {
+            TempData["Customer"] = "text-white";
             ViewData["Title"] = "Edit Customer";
             var customer = db.Customers.Find(id);
 
@@ -163,6 +165,7 @@ namespace GBCSports.Controllers
         /* Delete actions */
         public IActionResult Delete(int id)
         {
+            TempData["Customer"] = "text-white";
             ViewData["Title"] = "Delete Customer";
             var customer = db.Customers.Find(id);
             if (customer == null)

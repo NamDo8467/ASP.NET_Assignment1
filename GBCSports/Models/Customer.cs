@@ -49,5 +49,7 @@ namespace GBCSports.Models
 
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Phone number should be in '999-999-9999' format")]
         public string? Phone { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

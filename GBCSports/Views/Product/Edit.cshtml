@@ -1,26 +1,15 @@
-<<<<<<< HEAD
 @model Product
 @{
-    ViewBag.Title = "Edit Product";
+    ViewData["Title"] = "Edit Product";
 }<br/>
 <br/>
 <br/>
 <br/>
 <br/>
 
-@TempData["d"]
-=======
-﻿@model Product;
-
-@{
-    ViewBag.Title = "Edit Product";
-}
-
->>>>>>> parent of 3bff4cd (Merge B into main)
 <div class="container">
     <div><h2 class="pt-3">Edit Product</h2></div>
-</div>
-<form method="post" asp-action="Edit" asp-controller="Product">
+    <form method="post" asp-action="Edit" asp-controller="Product">
     <div class="form-group">
         <label asp-for="Code">Code<span class="text-danger d-inline fs-3 align-middle"> &#42;</span></label>
         <br/>
@@ -49,3 +38,4 @@
     <button class="btn btn-primary" type="submit" asp-controller="Product" asp-action="Edit">Save</button>
     <button class="btn btn-danger" type="submit" asp-controller="Product" asp-action="List">Cancel</button>
 </form>
+</div>
