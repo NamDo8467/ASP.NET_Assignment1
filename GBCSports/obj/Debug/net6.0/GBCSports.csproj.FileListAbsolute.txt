@@ -7,6 +7,7 @@ D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Deb
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Debug\net6.0\GBCSports.dll
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Debug\net6.0\ref\GBCSports.dll
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Debug\net6.0\GBCSports.pdb
+D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.csproj.AssemblyReference.cache
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.GeneratedMSBuildEditorConfig.editorconfig
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.AssemblyInfoInputs.cache
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.AssemblyInfo.cs
@@ -612,4 +613,3 @@ D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Deb
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.csproj.CopyComplete
-D:\COLLEGE\Semester 4\Web Application Development\Assignment 1\GBCSports\obj\Debug\net6.0\GBCSports.csproj.AssemblyReference.cache

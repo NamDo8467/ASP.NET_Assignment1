@@ -22,19 +22,33 @@ namespace GBCSports.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CustomerProduct", b =>
+            modelBuilder.Entity("GBCSports.Data.Product", b =>
                 {
-                    b.Property<int>("CustomersId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.HasKey("CustomersId", "ProductsId");
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("ProductsId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("CustomerProduct");
+                    b.Property<float?>("Price")
+                        .IsRequired()
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("Release_Date")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("GBCSports.Models.Country", b =>
@@ -140,50 +154,6 @@ namespace GBCSports.Migrations
                     b.ToTable("Incidents");
                 });
 
-            modelBuilder.Entity("GBCSports.Models.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float?>("Price")
-                        .IsRequired()
-                        .HasColumnType("real");
-
-                    b.Property<DateTime?>("Release_Date")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("GBCSports.Models.RegisterProduct", b =>
-                {
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CustomerId", "ProductId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("RegisterProducts");
-                });
-
             modelBuilder.Entity("GBCSports.Models.Technician", b =>
                 {
                     b.Property<int>("Id")
@@ -209,40 +179,6 @@ namespace GBCSports.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Technicians");
-                });
-
-            modelBuilder.Entity("CustomerProduct", b =>
-                {
-                    b.HasOne("GBCSports.Models.Customer", null)
-                        .WithMany()
-                        .HasForeignKey("CustomersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GBCSports.Models.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("GBCSports.Models.RegisterProduct", b =>
-                {
-                    b.HasOne("GBCSports.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GBCSports.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }
