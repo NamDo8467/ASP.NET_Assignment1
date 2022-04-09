@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "caYIAbIUKdTIRGbkpWPPc9K/+B0Tc/2+aIzdz289WzY=",
+=======
+  "Hash": "xMY7bIB+fH/5pIieeDwjs76gJRjZD6mKPCSJL+h/cVc=",
+>>>>>>> B
   "Source": "GBCSports",
   "BasePath": "_content/GBCSports",
   "Mode": "Default",
@@ -170,12 +174,20 @@
       "OriginalItemSpec": "wwwroot\\img\\Technical Image.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\OperationMessage.js",
+=======
+      "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\RegisterCustomer.js",
+>>>>>>> B
       "SourceId": "GBCSports",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\",
       "BasePath": "_content/GBCSports",
+<<<<<<< HEAD
       "RelativePath": "js/OperationMessage.js",
+=======
+      "RelativePath": "js/RegisterCustomer.js",
+>>>>>>> B
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +196,11 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
+<<<<<<< HEAD
       "OriginalItemSpec": "wwwroot\\js\\OperationMessage.js"
+=======
+      "OriginalItemSpec": "wwwroot\\js\\RegisterCustomer.js"
+>>>>>>> B
     },
     {
       "Identity": "D:\\COLLEGE\\Semester 4\\Web Application Development\\Assignment 1\\GBCSports\\wwwroot\\js\\site.js",

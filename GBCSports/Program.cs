@@ -4,6 +4,15 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(60 * 5);
+    options.Cookie.HttpOnly = false;
+    options.Cookie.IsEssential = true;  
+});
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRouting(options =>
@@ -15,6 +24,8 @@ builder.Services.AddRouting(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+
 
 var app = builder.Build();
 
@@ -28,6 +39,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseRouting();
 
